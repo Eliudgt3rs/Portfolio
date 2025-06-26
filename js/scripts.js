@@ -16,4 +16,8 @@ const handleCall = async () => {
       console.error("Failed to copy number: ", err);
       alert("Failed to copy phone number.");
     }
-  };
+};
+  
+
+ //
+
