@@ -11746,3 +11746,188 @@ html {
     left: -2vw;
   }
 }
+
+/* Enhanced Project Card Styling - Add these styles to your existing CSS file */
+
+/* Project Cards Container */
+.project-cards-container {
+  padding: 2rem 0;
+}
+
+/* Enhanced Card Styling */
+.card.project-card {
+  background: rgba(255, 255, 255, 0.95);
+  border: none;
+  border-radius: 20px !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  overflow: hidden;
+  margin-bottom: 2rem;
+  backdrop-filter: blur(10px);
+}
+
+.card.project-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.card.project-card .card-body {
+  padding: 1.5rem;
+}
+
+/* Project Content Layout */
+.project-content {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.project-info {
+  flex: 1;
+  min-width: 200px;
+}
+
+.project-info h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+}
+
+.project-description {
+  color: #6c757d;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+/* Project Image Wrapper */
+.project-image-wrapper {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  min-width: 200px;
+}
+
+.project-image-wrapper:hover {
+  transform: scale(1.05);
+}
+
+.project-image {
+  width: 100%;
+  height: auto;
+  max-width: 280px;
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+  display: block;
+}
+
+/* Technology Stack Badges */
+.project-tech-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.tech-badge {
+  background: linear-gradient(135deg, #1e30f3 0%, #e21e80 100%);
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  border: none;
+}
+
+/* View Project Button Overlay */
+.view-project-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(30, 48, 243, 0.9);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+  font-weight: 600;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  text-decoration: none;
+  font-size: 0.9rem;
+  z-index: 10;
+}
+
+.project-image-wrapper:hover .view-project-btn {
+  opacity: 1;
+}
+
+.view-project-btn:hover {
+  background: rgba(30, 48, 243, 1);
+  color: white;
+  text-decoration: none;
+}
+
+/* Enhanced Rate Card Button */
+.rate-card-btn {
+  background: linear-gradient(135deg, #1e30f3 0%, #e21e80 100%);
+  border: none;
+  border-radius: 25px;
+  padding: 0.75rem 2rem;
+  font-weight: 600;
+  color: white;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(30, 48, 243, 0.3);
+}
+
+.rate-card-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(30, 48, 243, 0.4);
+  color: white;
+  text-decoration: none;
+}
+
+/* Responsive Design for Cards */
+@media (max-width: 768px) {
+  .project-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+  
+  .project-image {
+    max-width: 100%;
+    min-width: 250px;
+  }
+  
+  .project-info h2 {
+    font-size: 1.3rem;
+  }
+  
+  .card.project-card .card-body {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .project-image {
+    min-width: 200px;
+  }
+  
+  .project-content {
+    gap: 0.75rem;
+  }
+  
+  .tech-badge {
+    font-size: 0.7rem;
+    padding: 0.2rem 0.6rem;
+  }
+}

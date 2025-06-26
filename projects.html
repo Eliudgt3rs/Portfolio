@@ -6,11 +6,11 @@
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
-    <meta name="description" content="" />
-    <meta name="author" content="" />
-    <title>Eliud Waititu</title>
+    <meta name="description" content="Eliud Waititu - Web Development Projects Portfolio" />
+    <meta name="author" content="Eliud Waititu" />
+    <title>Eliud Waititu - Projects</title>
     <!-- Favicon-->
-    <link rel="icon" type="image/x-icon" href="assets\icons8-internet.gif" />
+    <link rel="icon" type="image/x-icon" href="assets/icons8-internet.gif" />
     <!-- Custom Google font-->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -25,190 +25,1066 @@
     />
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="css/styles.css" rel="stylesheet" />
+    
+    <style>
+      /* Theme Variables */
+      :root {
+        --bg-primary: rgba(29, 28, 27, 0.945);
+        --bg-secondary: #fff;
+        --text-primary: #fff;
+        --text-secondary: #333;
+        --text-muted: #6c757d;
+        --card-bg: rgba(255, 255, 255, 0.95);
+        --card-border: rgba(255, 255, 255, 0.2);
+        --theme-transition: all 0.3s ease;
+      }
+
+      [data-theme="light"] {
+        --bg-primary: #f8f9fa;
+        --bg-secondary: #fff;
+        --text-primary: #333;
+        --text-secondary: #666;
+        --text-muted: #6c757d;
+        --card-bg: rgba(255, 255, 255, 0.9);
+        --card-border: rgba(0, 0, 0, 0.1);
+      }
+
+      /* Enhanced Body Styling */
+      body {
+        background-color: var(--bg-primary) !important;
+        color: var(--text-primary) !important;
+        transition: var(--theme-transition);
+      }
+
+      .text-white {
+        color: var(--text-primary) !important;
+      }
+
+      .text-muted-custom {
+        color: var(--text-muted) !important;
+      }
+
+      /* Enhanced Navigation Bar */
+      .navbar-enhanced {
+        backdrop-filter: blur(20px);
+        background: rgba(0, 0, 0, 0.1) !important;
+        transition: var(--theme-transition);
+        border-bottom: 1px solid var(--card-border);
+        padding: 1rem 0;
+        position: relative;
+        z-index: 1050;
+      }
+
+      [data-theme="light"] .navbar-enhanced {
+        background: rgba(255, 255, 255, 0.1) !important;
+      }
+
+      .navbar-enhanced.scrolled {
+        background: rgba(0, 0, 0, 0.95) !important;
+        backdrop-filter: blur(30px);
+        box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      [data-theme="light"] .navbar-enhanced.scrolled {
+        background: rgba(255, 255, 255, 0.95) !important;
+      }
+
+      /* Brand Enhancement */
+      .navbar-brand-enhanced {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--text-primary) !important;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        position: relative;
+      }
+
+      .navbar-brand-enhanced:hover {
+        transform: translateY(-2px);
+        color: var(--text-primary) !important;
+        text-decoration: none;
+      }
+
+      .navbar-brand-enhanced::after {
+        content: '';
+        position: absolute;
+        bottom: -3px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: linear-gradient(135deg, #1e30f3 0%, #e21e80 100%);
+        transition: width 0.3s ease;
+      }
+
+      .navbar-brand-enhanced:hover::after {
+        width: 100%;
+      }
+
+      /* Mobile menu overlay */
+      .mobile-menu-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.3);
+        z-index: 1049;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      .mobile-menu-overlay.show {
+        display: block;
+        opacity: 1;
+      }
+
+      /* Navbar container */
+      .navbar-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
+        position: relative;
+        z-index: inherit;
+      }
+
+      /* Navigation Links */
+      .navbar-nav-enhanced {
+        display: flex;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        gap: 2rem;
+        align-items: center;
+      }
+
+      .nav-item-enhanced {
+        position: relative;
+      }
+
+      .nav-link-enhanced {
+        color: var(--text-primary) !important;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.95rem;
+        padding: 0.75rem 1.25rem;
+        border-radius: 25px;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+        display: inline-block;
+      }
+
+      .nav-link-enhanced::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+        transition: left 0.5s;
+        z-index: 1;
+      }
+
+      .nav-link-enhanced:hover::before {
+        left: 100%;
+      }
+
+      .nav-link-enhanced:hover {
+        background: var(--card-bg);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        color: var(--text-primary) !important;
+        text-decoration: none;
+      }
+
+      .nav-link-enhanced i {
+        position: relative;
+        z-index: 2;
+      }
+
+      .nav-link-enhanced span {
+        position: relative;
+        z-index: 2;
+      }
+
+      .nav-link-enhanced.active {
+        background: linear-gradient(135deg, #1e30f3 0%, #e21e80 100%);
+        color: white !important;
+        box-shadow: 0 4px 15px rgba(30, 48, 243, 0.3);
+      }
+
+      .nav-link-enhanced.active:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(30, 48, 243, 0.4);
+      }
+
+      /* Navigation Controls Container */
+      .nav-controls {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      /* Enhanced Theme Toggle */
+      .theme-toggle-nav {
+        background: var(--card-bg);
+        border: 2px solid var(--card-border);
+        border-radius: 50px;
+        width: 55px;
+        height: 32px;
+        cursor: pointer;
+        transition: var(--theme-transition);
+        backdrop-filter: blur(10px);
+        position: relative;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        z-index: 1052;
+      }
+
+      .theme-toggle-nav:hover {
+        transform: scale(1.05);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+      }
+
+      .theme-toggle-nav::before {
+        content: '';
+        position: absolute;
+        top: 2px;
+        left: 2px;
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #1e30f3 0%, #e21e80 100%);
+        transition: var(--theme-transition);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+      }
+
+      [data-theme="light"] .theme-toggle-nav::before {
+        transform: translateX(23px);
+        background: linear-gradient(135deg, #ffc107 0%, #ff6b35 100%);
+      }
+
+      /* Enhanced Mobile Menu Toggle */
+      .mobile-menu-toggle {
+        display: none;
+        flex-direction: column;
+        background: var(--card-bg);
+        border: 2px solid var(--card-border);
+        border-radius: 15px;
+        padding: 0.75rem;
+        cursor: pointer;
+        transition: var(--theme-transition);
+        backdrop-filter: blur(10px);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        position: relative;
+        z-index: 1052;
+      }
+
+      .mobile-menu-toggle:hover {
+        transform: scale(1.05);
+        background: linear-gradient(135deg, #1e30f3 0%, #e21e80 100%);
+      }
+
+      .mobile-menu-toggle:hover .hamburger-line {
+        background: white;
+      }
+
+      .hamburger-line {
+        width: 25px;
+        height: 3px;
+        background: var(--text-primary);
+        margin: 3px 0;
+        transition: all 0.3s ease;
+        border-radius: 2px;
+      }
+
+      .mobile-menu-toggle.active .hamburger-line:nth-child(1) {
+        transform: rotate(45deg) translate(9px, 9px);
+      }
+
+      .mobile-menu-toggle.active .hamburger-line:nth-child(2) {
+        opacity: 0;
+      }
+
+      .mobile-menu-toggle.active .hamburger-line:nth-child(3) {
+        transform: rotate(-45deg) translate(9px, -9px);
+      }
+
+      /* Mobile Navigation */
+      .navbar-nav-mobile {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--card-bg);
+        border: 1px solid var(--card-border);
+        border-radius: 20px;
+        margin: 1rem 2rem;
+        padding: 1.5rem;
+        backdrop-filter: blur(20px);
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+        z-index: 1051;
+        animation: slideDown 0.3s ease-out;
+      }
+
+      .navbar-nav-mobile.show {
+        display: block;
+      }
+
+      .navbar-nav-mobile .nav-link-enhanced {
+        display: block;
+        width: 100%;
+        text-align: center;
+        margin: 0.5rem 0;
+        padding: 1rem 1.5rem;
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 15px;
+        color: var(--text-secondary) !important;
+        font-weight: 600;
+        transition: all 0.3s ease;
+      }
+
+      [data-theme="light"] .navbar-nav-mobile {
+        background: rgba(255, 255, 255, 0.95);
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+      }
+
+      [data-theme="light"] .navbar-nav-mobile .nav-link-enhanced {
+        background: rgba(0, 0, 0, 0.05);
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        color: #333 !important;
+      }
+
+      .navbar-nav-mobile .nav-link-enhanced:hover {
+        background: linear-gradient(135deg, #1e30f3 0%, #e21e80 100%);
+        color: white !important;
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(30, 48, 243, 0.3);
+      }
+
+      .navbar-nav-mobile .nav-link-enhanced.active {
+        background: linear-gradient(135deg, #1e30f3 0%, #e21e80 100%);
+        color: white !important;
+        box-shadow: 0 4px 15px rgba(30, 48, 243, 0.3);
+      }
+
+      .navbar-nav-mobile .nav-link-enhanced i {
+        font-size: 1.1rem;
+        margin-right: 0.75rem;
+      }
+
+      /* Brand logo */
+      .brand-logo {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .brand-logo i {
+        font-size: 1.2rem;
+        background: linear-gradient(135deg, #1e30f3 0%, #e21e80 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      /* Enhanced Project Cards */
+      .card.project-card {
+        background: var(--card-bg) !important;
+        border: 1px solid var(--card-border) !important;
+        border-radius: 20px !important;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease;
+        overflow: hidden;
+        margin-bottom: 2rem;
+        backdrop-filter: blur(10px);
+      }
+
+      .card.project-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+      }
+
+      .card.project-card .card-body {
+        padding: 1.5rem;
+      }
+
+      /* Project Content Layout */
+      .project-content {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        flex-wrap: wrap;
+      }
+
+      .project-info {
+        flex: 1;
+        min-width: 200px;
+      }
+
+      .project-info h2 {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--text-secondary);
+        margin-bottom: 0.5rem;
+        transition: var(--theme-transition);
+      }
+
+      .project-description {
+        color: var(--text-muted);
+        font-size: 0.9rem;
+        margin-bottom: 1rem;
+        line-height: 1.5;
+        transition: var(--theme-transition);
+      }
+
+      /* Project Image Wrapper */
+      .project-image-wrapper {
+        position: relative;
+        border-radius: 12px;
+        overflow: hidden;
+        transition: transform 0.3s ease;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        min-width: 200px;
+      }
+
+      .project-image-wrapper:hover {
+        transform: scale(1.05);
+      }
+
+      .project-image {
+        width: 100%;
+        height: auto;
+        max-width: 280px;
+        border-radius: 12px;
+        transition: transform 0.3s ease;
+        display: block;
+      }
+
+      /* Technology Stack Badges */
+      .project-tech-stack {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-top: 0.5rem;
+      }
+
+      .tech-badge {
+        background: linear-gradient(135deg, #1e30f3 0%, #e21e80 100%);
+        color: white;
+        padding: 0.25rem 0.75rem;
+        border-radius: 20px;
+        font-size: 0.75rem;
+        font-weight: 500;
+        border: none;
+      }
+
+      /* View Project Button Overlay */
+      .view-project-btn {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: rgba(30, 48, 243, 0.9);
+        color: white;
+        border: none;
+        padding: 0.5rem 1rem;
+        border-radius: 25px;
+        font-weight: 600;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        text-decoration: none;
+        font-size: 0.9rem;
+        z-index: 10;
+      }
+
+      .project-image-wrapper:hover .view-project-btn {
+        opacity: 1;
+      }
+
+      .view-project-btn:hover {
+        background: rgba(30, 48, 243, 1);
+        color: white;
+        text-decoration: none;
+      }
+
+      /* Enhanced Rate Card Button */
+      .rate-card-btn {
+        background: linear-gradient(135deg, #1e30f3 0%, #e21e80 100%);
+        border: none;
+        border-radius: 25px;
+        padding: 0.75rem 2rem;
+        font-weight: 600;
+        color: white;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(30, 48, 243, 0.3);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .rate-card-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(30, 48, 243, 0.4);
+        color: white;
+        text-decoration: none;
+      }
+
+      .rate-card-btn::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+        transition: left 0.5s;
+      }
+
+      .rate-card-btn:hover::before {
+        left: 100%;
+      }
+
+      /* Enhanced WhatsApp Float */
+      .whatsapp-float {
+        position: fixed;
+        width: 60px;
+        height: 60px;
+        bottom: 40px;
+        right: 40px;
+        background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+        color: #FFF;
+        border-radius: 50px;
+        text-align: center;
+        font-size: 30px;
+        box-shadow: 0 8px 25px rgba(37, 211, 102, 0.3);
+        z-index: 100;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+      }
+
+      .whatsapp-float:hover {
+        transform: translateY(-5px) scale(1.1);
+        box-shadow: 0 15px 35px rgba(37, 211, 102, 0.4);
+        color: white;
+        text-decoration: none;
+      }
+
+      .whatsapp-float img {
+        width: 35px;
+        height: 35px;
+      }
+
+      /* Enhanced Footer */
+      footer {
+        background: var(--card-bg) !important;
+        border-top: 1px solid var(--card-border);
+        backdrop-filter: blur(10px);
+        transition: var(--theme-transition);
+      }
+
+      /* Page Title Enhancement */
+      .page-title {
+        text-align: center;
+        margin-bottom: 3rem;
+        padding: 2rem;
+        background: var(--card-bg);
+        border-radius: 20px;
+        border: 1px solid var(--card-border);
+        backdrop-filter: blur(10px);
+        transition: var(--theme-transition);
+      }
+
+      /* Enhanced Scroll to Top Button */
+      .scroll-to-top {
+        position: fixed;
+        bottom: 120px;
+        right: 40px;
+        width: 50px;
+        height: 50px;
+        background: var(--card-bg);
+        border: 2px solid var(--card-border);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(20px);
+        transition: all 0.3s ease;
+        z-index: 98;
+        backdrop-filter: blur(10px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+      }
+
+      .scroll-to-top.show {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+
+      .scroll-to-top:hover {
+        transform: translateY(-3px) scale(1.1);
+        background: linear-gradient(135deg, #1e30f3 0%, #e21e80 100%);
+        border-color: transparent;
+        box-shadow: 0 15px 35px rgba(30, 48, 243, 0.3);
+      }
+
+      .scroll-to-top:hover i {
+        color: white !important;
+        transform: translateY(-2px);
+      }
+
+      .scroll-to-top i {
+        font-size: 1.2rem;
+        color: var(--text-secondary);
+        transition: all 0.3s ease;
+      }
+
+      /* Progress ring for scroll indicator */
+      .scroll-to-top::before {
+        content: '';
+        position: absolute;
+        top: -2px;
+        left: -2px;
+        right: -2px;
+        bottom: -2px;
+        border-radius: 50%;
+        background: conic-gradient(from 0deg, #1e30f3 0deg, #e21e80 var(--scroll-progress, 0deg), transparent var(--scroll-progress, 0deg));
+        z-index: -1;
+        transition: all 0.3s ease;
+      }
+
+      .scroll-to-top:hover::before {
+        background: conic-gradient(from 0deg, #1e30f3 0deg, #e21e80 360deg);
+        animation: rotate 2s linear infinite;
+      }
+
+      @keyframes rotate {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .navbar-container {
+          padding: 0 1rem;
+        }
+        
+        .navbar-nav-enhanced {
+          display: none;
+        }
+        
+        .mobile-menu-toggle {
+          display: flex;
+        }
+        
+        .theme-toggle-nav {
+          width: 50px;
+          height: 28px;
+        }
+        
+        .theme-toggle-nav::before {
+          width: 20px;
+          height: 20px;
+          top: 2px;
+          left: 2px;
+        }
+        
+        [data-theme="light"] .theme-toggle-nav::before {
+          transform: translateX(22px);
+        }
+
+        .project-content {
+          flex-direction: column;
+          text-align: center;
+          gap: 1rem;
+        }
+        
+        .project-image {
+          max-width: 100%;
+          min-width: 250px;
+        }
+        
+        .project-info h2 {
+          font-size: 1.3rem;
+        }
+        
+        .card.project-card .card-body {
+          padding: 1rem;
+        }
+
+        .whatsapp-float {
+          width: 50px;
+          height: 50px;
+          bottom: 20px;
+          right: 20px;
+        }
+
+        .whatsapp-float img {
+          width: 28px;
+          height: 28px;
+        }
+
+        .page-title {
+          padding: 1.5rem;
+          margin-bottom: 2rem;
+        }
+
+        .scroll-to-top {
+          bottom: 90px;
+          right: 20px;
+          width: 45px;
+          height: 45px;
+        }
+        
+        .scroll-to-top i {
+          font-size: 1rem;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .navbar-container {
+          padding: 0 0.5rem;
+        }
+        
+        .nav-controls {
+          gap: 0.5rem;
+        }
+        
+        .navbar-brand-enhanced {
+          font-size: 1.3rem;
+        }
+
+        .project-image {
+          min-width: 200px;
+        }
+        
+        .project-content {
+          gap: 0.75rem;
+        }
+        
+        .tech-badge {
+          font-size: 0.7rem;
+          padding: 0.2rem 0.6rem;
+        }
+      }
+
+      /* Animations */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .fade-in-up {
+        animation: fadeInUp 0.8s ease-out;
+      }
+
+      @keyframes slideDown {
+        from {
+          opacity: 0;
+          transform: translateY(-20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Smooth scroll behavior */
+      html {
+        scroll-behavior: smooth;
+      }
+
+      /* Enhanced scroll animation */
+      .scroll-to-top.animate {
+        animation: bounceUp 0.6s ease-out;
+      }
+
+      @keyframes bounceUp {
+        0% { transform: translateY(0) scale(1); }
+        50% { transform: translateY(-10px) scale(1.1); }
+        100% { transform: translateY(0) scale(1); }
+      }
+    </style>
   </head>
-  <body
-    class="d-flex flex-column h-100"
-    style="background-color: rgba(29, 28, 27, 0.945) !important"
-  >
+  <body class="d-flex flex-column h-100">
+
     <main class="flex-shrink-0">
-      <!-- Navigation-->
-      <nav class="navbar navbar-expand-lg navbar-light py-3">
-        <div class="container px-5">
-          <a class="navbar-brand" href="index.html"
-            ><span class="fw-bolder text-primary text-white"
-              >Eliud Waititu</span
-            ></a
-          >
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon border-white"></span>
-          </button>
-          <div
-            class="collapse navbar-collapse text-white !important"
-            id="navbarSupportedContent"
-          >
-            <ul class="navbar-nav ms-auto mb-lg-0 small fw-bolder">
-              <li class="nav-item">
-                <a class="nav-link text-white" href="index.html">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link text-white" href="resume.html">Resume</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link text-white" href="projects.html">Projects</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link text-white" href="contact.html">Contact</a>
-              </li>
-            </ul>
+      <!-- Enhanced Navigation Bar -->
+      <nav class="navbar-enhanced">
+        <div class="navbar-container">
+          <!-- Brand -->
+          <a class="navbar-brand-enhanced" href="index.html">
+            <span class="brand-logo">
+              <i class="bi bi-code-slash"></i>
+              Eliud Waititu
+            </span>
+          </a>
+
+          <!-- Desktop Navigation -->
+          <ul class="navbar-nav-enhanced">
+            <li class="nav-item-enhanced">
+              <a class="nav-link-enhanced" href="index.html" data-page="home">
+                <i class="bi bi-house me-1"></i>
+                <span>Home</span>
+              </a>
+            </li>
+            <li class="nav-item-enhanced">
+              <a class="nav-link-enhanced" href="resume.html" data-page="resume">
+                <i class="bi bi-file-person me-1"></i>
+                <span>Resume</span>
+              </a>
+            </li>
+            <li class="nav-item-enhanced">
+              <a class="nav-link-enhanced" href="projects.html" data-page="projects">
+                <i class="bi bi-folder me-1"></i>
+                <span>Projects</span>
+              </a>
+            </li>
+            <li class="nav-item-enhanced">
+              <a class="nav-link-enhanced" href="contact.html" data-page="contact">
+                <i class="bi bi-envelope me-1"></i>
+                <span>Contact</span>
+              </a>
+            </li>
+          </ul>
+
+          <!-- Navigation Controls -->
+          <div class="nav-controls">
+            <!-- Theme Toggle -->
+            <div 
+              class="theme-toggle-nav" 
+              onclick="toggleTheme()" 
+              title="Toggle Theme (Ctrl+L)"
+              role="button"
+              aria-label="Toggle dark/light theme"
+              tabindex="0"
+            ></div>
+
+            <!-- Mobile Menu Toggle -->
+            <div class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+              <div class="hamburger-line"></div>
+              <div class="hamburger-line"></div>
+              <div class="hamburger-line"></div>
+            </div>
           </div>
         </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div class="mobile-menu-overlay" id="mobileMenuOverlay" onclick="closeMobileMenu()"></div>
+
+        <!-- Mobile Navigation Menu -->
+        <div class="navbar-nav-mobile" id="mobileNavMenu">
+          <a class="nav-link-enhanced" href="index.html" data-page="home">
+            <i class="bi bi-house me-2"></i>
+            <span>Home</span>
+          </a>
+          <a class="nav-link-enhanced" href="resume.html" data-page="resume">
+            <i class="bi bi-file-person me-2"></i>
+            <span>Resume</span>
+          </a>
+          <a class="nav-link-enhanced" href="projects.html" data-page="projects">
+            <i class="bi bi-folder me-2"></i>
+            <span>Projects</span>
+          </a>
+          <a class="nav-link-enhanced" href="contact.html" data-page="contact">
+            <i class="bi bi-envelope me-2"></i>
+            <span>Contact</span>
+          </a>
+        </div>
       </nav>
+
       <!-- Projects Section-->
-      <section class="py-1">
-        <div class="container px-5 mb-3">
-          <div class="text-center mb-4">
+      <section class="py-5">
+        <div class="container px-5 mb-5">
+          <!-- Page Title -->
+          <div class="page-title fade-in-up">
             <h1 class="display-5 fw-bolder mb-0">
               <span class="text-gradient d-inline">Projects</span>
             </h1>
+            <p class="lead text-muted-custom mt-3">Showcasing My Web Development Portfolio</p>
           </div>
-          <a
-            class="btn btn-primary px-4 py-3 mb-4 rounded-5"
-            href="assets\DrWEB-RateCard.pdf"
-            target="_blank"
-          >
-            <div class="d-inline-block bi bi-download me-2"></div>
-            Rate Card
-          </a>
-          <div class="row gx-5 justify-content-center">
-            <div class="col-lg-11 col-xl-9 col-xxl-8">
-              <p style="color: gainsboro">
+          
+          <div class="text-center mb-4">
+            <a class="rate-card-btn" href="assets/DrWEB-RateCard.pdf" target="_blank">
+              <i class="bi bi-download me-2"></i>
+              Download Rate Card
+            </a>
+          </div>
+          
+          <div class="row justify-content-center">
+            <div class="col-lg-10">
+              <p style="color: var(--text-muted)" class="text-center mb-4">
                 *Click on the images to view live sites
               </p>
-              <!-- Project Card 1-->
-              <div class="card overflow-hidden shadow rounded-4 border-0 mb-4">
-                <div class="card-body p-2">
-                  <div class="d-flex align-items-center">
-                    <div class="px-3">
+              
+              <!-- Project Card 1: E-Commerce Website -->
+              <div class="card project-card fade-in-up">
+                <div class="card-body">
+                  <div class="project-content">
+                    <div class="project-info">
                       <h2 class="fw-bolder">E-Commerce Website</h2>
+                      <p class="project-description">
+                        A modern e-commerce platform for Tremont Hardware featuring product catalog, shopping cart, and responsive design optimized for all devices.
+                      </p>
+                      <div class="project-tech-stack">
+                        <span class="tech-badge">React</span>
+                        <span class="tech-badge">E-commerce</span>
+                        <span class="tech-badge">Responsive</span>
+                      </div>
                     </div>
-                    <a
-                      target="_blank"
-                      href="https://tremont-hardware.vercel.app/"
-                    >
-                      <img
-                        class="img-fluid"
-                        src="assets/tremont.png"
-                        alt="..."
-                        style="width: 16rem"
-                      />
-                    </a>
+                    <div class="project-image-wrapper">
+                      <img class="project-image img-fluid" src="assets/tremont.png" alt="Tremont Hardware E-commerce Website" />
+                      <a href="https://tremont-hardware.vercel.app/" target="_blank" class="view-project-btn">
+                        View Project
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>
-              <!-- Project Card 2-->
-              <div class="card overflow-hidden shadow rounded-4 border-0 mb-4">
-                <div class="card-body p-2">
-                  <div class="d-flex align-items-center">
-                    <div class="px-3">
+              
+              <!-- Project Card 2: Portfolio Website -->
+              <div class="card project-card fade-in-up">
+                <div class="card-body">
+                  <div class="project-content">
+                    <div class="project-info">
                       <h2 class="fw-bolder">Portfolio Website</h2>
+                      <p class="project-description">
+                        Professional makeup artist portfolio showcasing work, services, and client testimonials with elegant design and smooth animations.
+                      </p>
+                      <div class="project-tech-stack">
+                        <span class="tech-badge">Portfolio</span>
+                        <span class="tech-badge">CSS3</span>
+                        <span class="tech-badge">JavaScript</span>
+                      </div>
                     </div>
-                    <a
-                      target="_blank"
-                      href="https://make-up-by-barbie.vercel.app"
-                    >
-                      <img
-                        class="img-fluid p-1"
-                        src="assets/MakeupArtist.png"
-                        alt="..."
-                        style="width: 16rem"
-                      />
-                    </a>
+                    <div class="project-image-wrapper">
+                      <img class="project-image img-fluid" src="assets/MakeupArtist.png" alt="Makeup Artist Portfolio Website" />
+                      <a href="https://make-up-by-barbie.vercel.app" target="_blank" class="view-project-btn">
+                        View Project
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>
-              <!-- Project Card 3-->
-              <div class="card overflow-hidden shadow rounded-4 border-0 mb-4">
-                <div class="card-body p-2">
-                  <div class="d-flex align-items-center">
-                    <div class="px-3">
-                      <h2 class="fw-bolder">Car Hire Site</h2>
+              
+              <!-- Project Card 3: Car Hire Site -->
+              <div class="card project-card fade-in-up">
+                <div class="card-body">
+                  <div class="project-content">
+                    <div class="project-info">
+                      <h2 class="fw-bolder">Car Hire Website</h2>
+                      <p class="project-description">
+                        Luxury car rental platform with vehicle booking system, pricing calculator, and customer management features for premium car hire services.
+                      </p>
+                      <div class="project-tech-stack">
+                        <span class="tech-badge">Booking System</span>
+                        <span class="tech-badge">React</span>
+                        <span class="tech-badge">UI/UX</span>
+                      </div>
                     </div>
-                    <a target="_blank" href="https://lux-ride.vercel.app/">
-                      <img
-                        class="img-fluid p-2"
-                        alt="Master Lux Car Hire Website"
-                        src="assets/MasterLux.png"
-                        style="width: 16rem"
-                      />
-                    </a>
+                    <div class="project-image-wrapper">
+                      <img class="project-image img-fluid" src="assets/MasterLux.png" alt="Master Lux Car Hire Website" />
+                      <a href="https://lux-ride.vercel.app/" target="_blank" class="view-project-btn">
+                        View Project
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>
-
-              <!-- Project Card 4-->
-              <div class="card overflow-hidden shadow rounded-4 border-0 mb-4">
-                <div class="card-body p-2">
-                  <div class="d-flex align-items-center">
-                    <div class="px-3">
-                      <h2 class="fw-bolder">Business Website</h2>
+              
+              <!-- Project Card 4: Business Website -->
+              <div class="card project-card fade-in-up">
+                <div class="card-body">
+                  <div class="project-content">
+                    <div class="project-info">
+                      <h2 class="fw-bolder">Florist Business Website</h2>
+                      <p class="project-description">
+                        Beautiful business website for Daisy Does It florist featuring service showcase, gallery, and contact integration for floral arrangements.
+                      </p>
+                      <div class="project-tech-stack">
+                        <span class="tech-badge">Business</span>
+                        <span class="tech-badge">Gallery</span>
+                        <span class="tech-badge">Contact Form</span>
+                      </div>
                     </div>
-                    <a target="_blank" href="https://daisydoesit.vercel.app/">
-                      <img
-                        class="img-fluid p-1"
-                        src="assets/Florist.png"
-                        alt="..."
-                        style="width: 16rem"
-                      />
-                    </a>
+                    <div class="project-image-wrapper">
+                      <img class="project-image img-fluid" src="assets/Florist.png" alt="Daisy Does It Florist Website" />
+                      <a href="https://daisydoesit.vercel.app/" target="_blank" class="view-project-btn">
+                        View Project
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>
-              <!-- Project Card 5-->
-              <div class="card overflow-hidden shadow rounded-4 border-0 mb-4">
-                <div class="card-body p-0">
-                  <div class="d-flex align-items-center">
-                    <div class="px-3">
+              
+              <!-- Project Card 5: Simple Calculator -->
+              <div class="card project-card fade-in-up">
+                <div class="card-body">
+                  <div class="project-content">
+                    <div class="project-info">
                       <h2 class="fw-bolder">Simple Calculator</h2>
-                      <p></p>
+                      <p class="project-description">
+                        Clean and functional calculator app with basic arithmetic operations, built with vanilla JavaScript and responsive design principles.
+                      </p>
+                      <div class="project-tech-stack">
+                        <span class="tech-badge">JavaScript</span>
+                        <span class="tech-badge">Calculator</span>
+                        <span class="tech-badge">Vanilla JS</span>
+                      </div>
                     </div>
-                    <a href="https://eliudgt3rs.github.io/calculate/">
-                      <img
-                        class="img-fluid"
-                        src="assets\OIP (1).jpg"
-                        alt="..."
-                        style="width: 10rem"
-                      />
-                    </a>
+                    <div class="project-image-wrapper">
+                      <img class="project-image img-fluid" src="assets/OIP (1).jpg" alt="Simple Calculator App" />
+                      <a href="https://eliudgt3rs.github.io/calculate/" target="_blank" class="view-project-btn">
+                        View Project
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>
-              <!-- Project Card 6-->
-              <div class="card overflow-hidden shadow rounded-4 border-0">
-                <div class="card-body p-0">
-                  <div class="d-flex align-items-center">
-                    <div class="px-4">
-                      <h2 class="fw-bolder">Simple Weather Finder</h2>
-                      <p></p>
+              
+              <!-- Project Card 6: Weather Finder -->
+              <div class="card project-card fade-in-up">
+                <div class="card-body">
+                  <div class="project-content">
+                    <div class="project-info">
+                      <h2 class="fw-bolder">Weather Finder App</h2>
+                      <p class="project-description">
+                        Real-time weather application that provides current weather conditions and forecasts using weather API integration with intuitive interface.
+                      </p>
+                      <div class="project-tech-stack">
+                        <span class="tech-badge">Weather API</span>
+                        <span class="tech-badge">JavaScript</span>
+                        <span class="tech-badge">Real-time</span>
+                      </div>
                     </div>
-                    <a
-                      href="https://eliudgt3rs.github.io/weather/"
-                      target="_blank"
-                    >
-                      <img
-                        class="img-fluid"
-                        src="assets\R.gif"
-                        alt="..."
-                        style="width: 10rem"
-                      />
-                    </a>
+                    <div class="project-image-wrapper">
+                      <img class="project-image img-fluid" src="assets/R.gif" alt="Weather Finder App" />
+                      <a href="https://eliudgt3rs.github.io/weather/" target="_blank" class="view-project-btn">
+                        View Project
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -216,6 +1092,7 @@
           </div>
         </div>
       </section>
+      
       <!-- Call to action section-->
       <section class="py-5 bg-gradient-primary-to-secondary text-white">
         <div class="container px-5 my-5">
@@ -226,53 +1103,424 @@
             <a
               class="btn btn-outline-light rounded-5 btn-lg px-5 py-3 fs-6 fw-bolder"
               href="contact.html"
-              >Call Me</a
             >
+              Call Me
+            </a>
           </div>
         </div>
       </section>
     </main>
+    
     <!-- Footer-->
-    <footer
-      class="bg-white py-4 mt-auto"
-      style="background-color: rgba(29, 28, 27, 0.945) !important"
-    >
+    <footer class="py-4 mt-auto">
       <div class="container px-5">
-        <div
-          class="row align-items-center justify-content-between flex-column flex-sm-row"
-        >
+        <div class="row align-items-center justify-content-between flex-column flex-sm-row">
           <div class="col-auto">
-            <div class="small m-0" style="color: azure">
-              Copyright &copy; DrWeb-Ke 2025
-            </div>
+            <div class="small m-0 text-muted-custom">Copyright &copy; DrWeb-Ke 2025</div>
           </div>
           <div class="col-auto">
-            <a class="small" href="privacy.html">Privacy</a>
-            <span class="mx-1">&middot;</span>
-            <a class="small" href="privacy.html">Terms</a>
-            <span class="mx-1">&middot;</span>
-            <a class="small" href="contact.html">Contact</a>
+            <a class="small text-muted-custom" href="privacy.html">Privacy</a>
+            <span class="mx-1 text-muted-custom">&middot;</span>
+            <a class="small text-muted-custom" href="privacy.html">Terms</a>
+            <span class="mx-1 text-muted-custom">&middot;</span>
+            <a class="small text-muted-custom" href="contact.html">Contact</a>
           </div>
         </div>
       </div>
     </footer>
-    <!-- Bootstrap core JS-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Core theme JS-->
-    <script src="js/scripts.js"></script>
+    
+    <!-- Enhanced WhatsApp Float Button -->
     <a
-      href="https://wa.me/254719790026?text=Hi%20Eliud%2C%20I%20checked%20your%20portfolio%20and%20I’m%20interested%20in%20your%20web%20development%20services!"
+      href="https://wa.me/254719790026?text=Hi%20Eliud%2C%20I%20checked%20your%20projects%20and%20I'm%20interested%20in%20your%20web%20development%20services!"
       class="whatsapp-float"
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Chat on WhatsApp"
+      title="Let's discuss your project!"
     >
       <img
         src="https://cdn-icons-png.flaticon.com/512/733/733585.png"
         alt="WhatsApp"
-        width="60"
-        height="60"
       />
     </a>
+
+    <!-- Scroll to Top Button -->
+    <button
+      class="scroll-to-top"
+      onclick="scrollToTop()"
+      title="Scroll to Top"
+      aria-label="Scroll to top of page"
+    >
+      <i class="bi bi-arrow-up"></i>
+    </button>
+
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="js/scripts.js"></script>
+
+    <script>
+      // Clear any existing timers to prevent conflicts
+      let highestTimeoutId = setTimeout(function(){});
+      for (let i = 0; i <= highestTimeoutId; i++) {
+        clearTimeout(i);
+        clearInterval(i);
+      }
+
+      // Global variables to prevent memory leaks
+      let scrollTimeout = null;
+      let isScrolling = false;
+
+      // Enhanced Navigation Functionality
+      function toggleMobileMenu() {
+        const mobileMenu = document.getElementById('mobileNavMenu');
+        const mobileOverlay = document.getElementById('mobileMenuOverlay');
+        const toggleButton = document.querySelector('.mobile-menu-toggle');
+        
+        if (!mobileMenu || !mobileOverlay || !toggleButton) return;
+        
+        const isOpen = mobileMenu.classList.contains('show');
+        
+        if (isOpen) {
+          closeMobileMenu();
+        } else {
+          openMobileMenu();
+        }
+      }
+
+      function openMobileMenu() {
+        const mobileMenu = document.getElementById('mobileNavMenu');
+        const mobileOverlay = document.getElementById('mobileMenuOverlay');
+        const toggleButton = document.querySelector('.mobile-menu-toggle');
+        
+        if (!mobileMenu || !mobileOverlay || !toggleButton) return;
+        
+        mobileMenu.classList.add('show');
+        mobileOverlay.classList.add('show');
+        toggleButton.classList.add('active');
+        
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeMobileMenu() {
+        const mobileMenu = document.getElementById('mobileNavMenu');
+        const mobileOverlay = document.getElementById('mobileMenuOverlay');
+        const toggleButton = document.querySelector('.mobile-menu-toggle');
+        
+        if (!mobileMenu || !mobileOverlay || !toggleButton) return;
+        
+        mobileMenu.classList.remove('show');
+        mobileOverlay.classList.remove('show');
+        toggleButton.classList.remove('active');
+        
+        document.body.style.overflow = '';
+      }
+
+      // Theme Toggle Functionality
+      function toggleTheme() {
+        try {
+          const body = document.body;
+          const currentTheme = body.getAttribute('data-theme');
+          const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+          
+          body.setAttribute('data-theme', newTheme);
+          localStorage.setItem('theme', newTheme);
+          
+          body.style.transition = 'all 0.3s ease';
+          setTimeout(() => {
+            if (body) {
+              body.style.transition = '';
+            }
+          }, 300);
+        } catch (error) {
+          console.warn('Theme toggle failed:', error);
+        }
+      }
+
+      // Enhanced navbar scroll effect
+      function updateNavbarOnScroll() {
+        try {
+          const navbar = document.querySelector('.navbar-enhanced');
+          if (!navbar) return;
+          
+          const scrolled = window.scrollY > 50;
+          
+          if (scrolled) {
+            navbar.classList.add('scrolled');
+          } else {
+            navbar.classList.remove('scrolled');
+          }
+        } catch (error) {
+          console.warn('Navbar scroll update failed:', error);
+        }
+      }
+
+      // Enhanced Scroll to Top Functionality
+      function scrollToTop() {
+        try {
+          const scrollBtn = document.querySelector('.scroll-to-top');
+          if (scrollBtn) {
+            scrollBtn.classList.add('animate');
+            
+            setTimeout(() => {
+              if (scrollBtn) {
+                scrollBtn.classList.remove('animate');
+              }
+            }, 600);
+          }
+          
+          window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+          });
+        } catch (error) {
+          console.warn('Scroll to top failed:', error);
+        }
+      }
+
+      // Show/hide scroll to top button with progress indicator
+      function updateScrollToTop() {
+        try {
+          const scrollBtn = document.querySelector('.scroll-to-top');
+          if (!scrollBtn) return;
+          
+          const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+          const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+          
+          if (docHeight <= 0) return; // Prevent division by zero
+          
+          const scrollPercent = (scrollTop / docHeight) * 100;
+          const scrollDegrees = Math.min((scrollPercent / 100) * 360, 360);
+          
+          scrollBtn.style.setProperty('--scroll-progress', `${scrollDegrees}deg`);
+          
+          if (scrollTop > 300) {
+            scrollBtn.classList.add('show');
+          } else {
+            scrollBtn.classList.remove('show');
+          }
+        } catch (error) {
+          console.warn('Scroll button update failed:', error);
+        }
+      }
+
+      // Set active page indicator
+      function setActivePage() {
+        try {
+          const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+          const navLinks = document.querySelectorAll('.nav-link-enhanced');
+          
+          navLinks.forEach(link => {
+            const linkPage = link.getAttribute('href');
+            const parentItem = link.closest('.nav-item-enhanced');
+            
+            link.classList.remove('active');
+            if (parentItem) parentItem.classList.remove('current-page');
+            
+            if (linkPage === currentPage || 
+                (currentPage === '' && linkPage === 'index.html') ||
+                (currentPage === 'index.html' && linkPage === 'index.html')) {
+              link.classList.add('active');
+              if (parentItem) parentItem.classList.add('current-page');
+            }
+          });
+        } catch (error) {
+          console.warn('Active page setting failed:', error);
+        }
+      }
+
+      // Throttled scroll event handler
+      function handleScroll() {
+        if (isScrolling) return;
+        
+        isScrolling = true;
+        
+        if (scrollTimeout) {
+          clearTimeout(scrollTimeout);
+        }
+        
+        scrollTimeout = setTimeout(() => {
+          updateNavbarOnScroll();
+          updateScrollToTop();
+          isScrolling = false;
+        }, 16); // ~60fps
+      }
+
+      // Keyboard navigation support
+      function handleNavKeyboard(event) {
+        try {
+          if (event.key === 'Escape') {
+            const mobileMenu = document.getElementById('mobileNavMenu');
+            if (mobileMenu && mobileMenu.classList.contains('show')) {
+              closeMobileMenu();
+            }
+          }
+          
+          if (event.ctrlKey && event.key === 'l') {
+            event.preventDefault();
+            toggleTheme();
+          }
+          
+          if (event.ctrlKey && event.key === 'Home') {
+            event.preventDefault();
+            scrollToTop();
+          }
+          
+          if (event.altKey && event.key === 't') {
+            event.preventDefault();
+            scrollToTop();
+          }
+        } catch (error) {
+          console.warn('Keyboard handler failed:', error);
+        }
+      }
+
+      // Enhanced intersection observer for animations
+      function initializeAnimations() {
+        try {
+          const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+                observer.unobserve(entry.target); // Stop observing once animated
+              }
+            });
+          }, { threshold: 0.1 });
+
+          document.querySelectorAll('.project-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+          });
+        } catch (error) {
+          console.warn('Animation initialization failed:', error);
+        }
+      }
+
+      // Enhanced project card interactions
+      function initializeProjectCards() {
+        try {
+          document.querySelectorAll('.project-card').forEach(card => {
+            let hoverTimeout;
+            
+            card.addEventListener('mouseenter', function() {
+              clearTimeout(hoverTimeout);
+              this.style.transform = 'translateY(-8px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+              clearTimeout(hoverTimeout);
+              hoverTimeout = setTimeout(() => {
+                this.style.transform = 'translateY(0) scale(1)';
+              }, 50);
+            });
+          });
+
+          // Tech badge hover effects
+          document.querySelectorAll('.tech-badge').forEach(badge => {
+            let badgeTimeout;
+            
+            badge.addEventListener('mouseenter', function() {
+              clearTimeout(badgeTimeout);
+              this.style.transform = 'scale(1.1)';
+              this.style.boxShadow = '0 4px 15px rgba(30, 48, 243, 0.3)';
+            });
+            
+            badge.addEventListener('mouseleave', function() {
+              clearTimeout(badgeTimeout);
+              badgeTimeout = setTimeout(() => {
+                this.style.transform = 'scale(1)';
+                this.style.boxShadow = 'none';
+              }, 50);
+            });
+          });
+        } catch (error) {
+          console.warn('Project card initialization failed:', error);
+        }
+      }
+
+      // Main initialization function
+      function initializePage() {
+        try {
+          // Load saved theme
+          const savedTheme = localStorage.getItem('theme') || 'dark';
+          document.body.setAttribute('data-theme', savedTheme);
+          
+          // Set active page
+          setActivePage();
+          
+          // Initialize scroll effects
+          updateNavbarOnScroll();
+          updateScrollToTop();
+          
+          // Initialize animations and interactions
+          initializeAnimations();
+          initializeProjectCards();
+          
+          // Add staggered fade-in animation to elements
+          const elements = document.querySelectorAll('.fade-in-up');
+          elements.forEach((el, index) => {
+            el.style.animationDelay = `${index * 0.2}s`;
+          });
+
+          // Close mobile menu when clicking nav links
+          const mobileNavLinks = document.querySelectorAll('.navbar-nav-mobile .nav-link-enhanced');
+          mobileNavLinks.forEach(link => {
+            link.addEventListener('click', closeMobileMenu);
+          });
+
+          // Theme toggle accessibility
+          const themeToggle = document.querySelector('.theme-toggle-nav');
+          if (themeToggle) {
+            themeToggle.addEventListener('keydown', function(e) {
+              if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                toggleTheme();
+              }
+            });
+          }
+
+          // Scroll to top touch support
+          const scrollBtn = document.querySelector('.scroll-to-top');
+          if (scrollBtn) {
+            scrollBtn.addEventListener('touchstart', function(e) {
+              e.preventDefault();
+              this.style.transform = 'scale(0.95)';
+            });
+
+            scrollBtn.addEventListener('touchend', function(e) {
+              e.preventDefault();
+              this.style.transform = 'scale(1)';
+              scrollToTop();
+            });
+          }
+
+          console.log('✅ Projects page initialized successfully!');
+        } catch (error) {
+          console.error('Page initialization failed:', error);
+        }
+      }
+
+      // Event listeners
+      document.addEventListener('DOMContentLoaded', initializePage);
+      window.addEventListener('scroll', handleScroll, { passive: true });
+      document.addEventListener('keydown', handleNavKeyboard);
+
+      // Listen for theme changes from other tabs
+      window.addEventListener('storage', function(e) {
+        if (e.key === 'theme' && e.newValue) {
+          document.body.setAttribute('data-theme', e.newValue);
+        }
+      });
+
+      // Cleanup function for when page unloads
+      window.addEventListener('beforeunload', function() {
+        if (scrollTimeout) {
+          clearTimeout(scrollTimeout);
+        }
+      });
+    </script>
   </body>
 </html>
