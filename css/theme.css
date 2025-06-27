@@ -1,0 +1,330 @@
+/**
+ * Theme CSS
+ * Contains theme variables, color schemes, and theme-specific styling
+ */
+
+/* Theme Variables */
+:root {
+  --bg-primary: rgba(29, 28, 27, 0.945);
+  --bg-secondary: #fff;
+  --text-primary: #fff;
+  --text-secondary: #333;
+  --text-muted: #6c757d;
+  --card-bg: rgba(255, 255, 255, 0.95);
+  --card-border: rgba(255, 255, 255, 0.2);
+  --theme-transition: all 0.3s ease;
+}
+
+/* Light Theme Variables */
+[data-theme="light"] {
+  --bg-primary: #f8f9fa;
+  --bg-secondary: #fff;
+  --text-primary: #333;
+  --text-secondary: #666;
+  --text-muted: #6c757d;
+  --card-bg: rgba(255, 255, 255, 0.9);
+  --card-border: rgba(0, 0, 0, 0.1);
+}
+
+/* Enhanced Body Styling */
+body {
+  background-color: var(--bg-primary) !important;
+  color: var(--text-primary) !important;
+  transition: var(--theme-transition);
+}
+
+/* Global Text Colors */
+.text-white {
+  color: var(--text-primary) !important;
+}
+
+.text-muted-custom {
+  color: var(--text-muted) !important;
+}
+
+/* Text gradient that adapts to theme */
+.text-gradient {
+  background: linear-gradient(135deg, #1e30f3 0%, #e21e80 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Enhanced Profile Section */
+.profile {
+  position: relative;
+  height: 75vw;
+  width: 75vw;
+  border-radius: 5vw;
+  margin-top: 5vw;
+  max-height: 40rem;
+  max-width: 40rem;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  transition: var(--theme-transition);
+}
+
+[data-theme="light"] .profile {
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.profile:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+}
+
+[data-theme="light"] .profile:hover {
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
+}
+
+.profile .profile-img {
+  height: 80vw;
+  max-height: 45rem;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: var(--theme-transition);
+}
+
+/* Enhanced decorative elements with theme support */
+.profile .decorative-element {
+  position: absolute;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #1e30f3 0%, #e21e80 100%);
+  animation: float 3s ease-in-out infinite;
+  opacity: 0.8;
+  transition: var(--theme-transition);
+}
+
+[data-theme="light"] .profile .decorative-element {
+  opacity: 0.6;
+}
+
+.profile .element-1 {
+  width: 20px;
+  height: 20px;
+  top: 10%;
+  right: 5%;
+  animation-delay: 0s;
+}
+
+.profile .element-2 {
+  width: 15px;
+  height: 15px;
+  top: 15%;
+  right: -8%;
+  background: var(--text-primary);
+  animation-delay: 0.5s;
+}
+
+.profile .element-3 {
+  width: 25px;
+  height: 25px;
+  bottom: 15%;
+  left: 5%;
+  animation-delay: 1s;
+}
+
+.profile .element-4 {
+  width: 18px;
+  height: 18px;
+  bottom: 10%;
+  left: -8%;
+  background: var(--text-primary);
+  animation-delay: 1.5s;
+}
+
+.profile .element-5 {
+  width: 12px;
+  height: 12px;
+  top: 30%;
+  left: -5%;
+  background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
+  animation-delay: 2s;
+}
+
+.profile .element-6 {
+  width: 22px;
+  height: 22px;
+  bottom: 30%;
+  right: -5%;
+  background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
+  animation-delay: 2.5s;
+}
+
+/* Floating Animation */
+@keyframes float {
+  0%, 100% { 
+    transform: translateY(0px); 
+  }
+  50% { 
+    transform: translateY(-10px); 
+  }
+}
+
+/* Enhanced About Section */
+.about-section {
+  background: var(--card-bg);
+  border-radius: 30px;
+  padding: 3rem;
+  margin: 2rem 0;
+  border: 1px solid var(--card-border);
+  backdrop-filter: blur(10px);
+  transition: var(--theme-transition);
+}
+
+.about-section:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.about-section h2, 
+.about-section p {
+  color: var(--text-secondary) !important;
+  transition: var(--theme-transition);
+}
+
+.about-section .lead {
+  color: var(--text-muted) !important;
+}
+
+/* Header specific styling */
+.header-content {
+  transition: var(--theme-transition);
+}
+
+/* Badge Enhancement */
+.badge {
+  border-radius: 25px;
+  padding: 0.5rem 1.5rem;
+  font-weight: 500;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: var(--theme-transition);
+}
+
+/* Enhanced Footer */
+footer {
+  background: var(--card-bg) !important;
+  border-top: 1px solid var(--card-border);
+  backdrop-filter: blur(10px);
+  transition: var(--theme-transition);
+}
+
+footer .small {
+  color: var(--text-muted) !important;
+  transition: var(--theme-transition);
+}
+
+footer a.small {
+  color: var(--text-muted) !important;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+footer a.small:hover {
+  color: var(--text-primary) !important;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.8s ease-out;
+}
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Skip navigation for accessibility */
+.skip-navigation {
+  position: absolute;
+  top: -40px;
+  left: 6px;
+  background: var(--card-bg);
+  color: var(--text-primary);
+  padding: 8px;
+  text-decoration: none;
+  border-radius: 4px;
+  z-index: 1000;
+  transition: top 0.3s;
+}
+
+.skip-navigation:focus {
+  top: 6px;
+}
+
+/* Focus indicators for accessibility */
+.focus-visible:focus {
+  outline: 2px solid #1e30f3;
+  outline-offset: 2px;
+}
+
+/* Ripple animation for interactive elements */
+@keyframes ripple {
+  to {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+/* Theme transition for smooth switching */
+*,
+*::before,
+*::after {
+  transition-property: background-color, border-color, color, fill, stroke;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  :root {
+    --card-border: rgba(255, 255, 255, 0.5);
+  }
+  
+  [data-theme="light"] {
+    --card-border: rgba(0, 0, 0, 0.3);
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  .profile .decorative-element {
+    animation: none;
+  }
+}
+
+/* Print styles */
+@media print {
+  body {
+    background: white !important;
+    color: black !important;
+  }
+  
+  .navbar-enhanced,
+  .scroll-to-top,
+  .whatsapp-float,
+  .theme-toggle-nav {
+    display: none !important;
+  }
+}

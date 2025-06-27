@@ -1,0 +1,51 @@
+# Robots.txt for Eliud Waititu Portfolio
+# Allow all web crawlers to access all content
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://yourportfolio.com/sitemap.xml
+
+# Crawl-delay (optional - helps prevent server overload)
+Crawl-delay: 1
+
+# Disallow specific paths (if needed)
+# Disallow: /private/
+# Disallow: /admin/
+# Disallow: /temp/
+
+# Allow specific important files
+Allow: /css/
+Allow: /js/
+Allow: /assets/
+
+# Block access to sensitive files
+Disallow: /.git/
+Disallow: /node_modules/
+Disallow: /.env
+Disallow: /package.json
+Disallow: /build/
+Disallow: /tools/
+
+# Google-specific directives
+User-agent: Googlebot
+Allow: /
+
+# Bing-specific directives  
+User-agent: Bingbot
+Allow: /
+
+# Social media crawlers
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+# Additional crawlers
+User-agent: WhatsApp
+Allow: /
