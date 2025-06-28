@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="SEO Best Practices for Small Businesses - DrWeb-Ke Blog" />
+    <meta name="author" content="Eliud Waititu" />
+    <title>SEO Best Practices for Small Businesses - DrWeb-Ke Blog</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="assets\icons8-internet.gif" />
+    <!-- Custom Google font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
+      rel="stylesheet"
+    />
+    <!-- Bootstrap icons-->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    
+    <style>
+      /* Theme Variables */
+      :root {
+        --bg-primary: rgba(29, 28, 27, 0.945);
+        --text-primary: #fff;
+        --text-secondary: #333;
+        --text-muted: #6c757d;
+        --card-bg: rgba(255, 255, 255, 0.95);
+        --card-border: rgba(255, 255, 255, 0.2);
+        --theme-transition: all 0.3s ease;
+        --gradient-primary: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+      }
+
+      [data-theme="light"] {
+        --bg-primary: #f8f9fa;
+        --text-primary: #333;
+        --text-secondary: #666;
+        --text-muted: #6c757d;
+        --card-bg: rgba(255, 255, 255, 0.9);
+        --card-border: rgba(0, 0, 0, 0.1);
+      }
+
+      /* Base Styling */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        background-color: var(--bg-primary);
+        color: var(--text-primary);
+        transition: var(--theme-transition);
+        line-height: 1.7;
+        min-height: 100vh;
+        padding: 2rem 1rem;
+      }
+
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 0 1rem;
+      }
+
+      /* Header Controls */
+      .header-controls {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 3rem;
+        padding: 1rem 0;
+      }
+
+      .back-button {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: var(--card-bg);
+        color: var(--text-primary);
+        text-decoration: none;
+        padding: 0.75rem 1.5rem;
+        border-radius: 25px;
+        font-weight: 600;
+        border: 1px solid var(--card-border);
+        backdrop-filter: blur(10px);
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .back-button:hover {
+        background: var(--gradient-primary);
+        color: #333;
+        text-decoration: none;
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(168, 237, 234, 0.3);
+      }
+
+      .theme-toggle {
+        background: var(--card-bg);
+        border: 2px solid var(--card-border);
+        border-radius: 50px;
+        width: 55px;
+        height: 32px;
+        cursor: pointer;
+        transition: var(--theme-transition);
+        backdrop-filter: blur(10px);
+        position: relative;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .theme-toggle:hover {
+        transform: scale(1.05);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+      }
+
+      .theme-toggle::before {
+        content: '';
+        position: absolute;
+        top: 2px;
+        left: 2px;
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        background: var(--gradient-primary);
+        transition: var(--theme-transition);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+      }
+
+      [data-theme="light"] .theme-toggle::before {
+        transform: translateX(23px);
+        background: linear-gradient(135deg, #ffc107 0%, #ff6b35 100%);
+      }
+
+      /* Article Styling */
+      .article-container {
+        background: var(--card-bg);
+        border-radius: 25px;
+        padding: 3rem;
+        border: 1px solid var(--card-border);
+        backdrop-filter: blur(10px);
+        transition: var(--theme-transition);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        margin-bottom: 2rem;
+      }
+
+      .article-header {
+        text-align: center;
+        margin-bottom: 3rem;
+        padding-bottom: 2rem;
+        border-bottom: 1px solid var(--card-border);
+      }
+
+      .article-category {
+        display: inline-block;
+        background: var(--gradient-primary);
+        color: #333;
+        padding: 0.5rem 1.5rem;
+        border-radius: 25px;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 1.5rem;
+      }
+
+      .article-title {
+        font-size: 3rem;
+        font-weight: 800;
+        color: var(--text-secondary);
+        margin-bottom: 1rem;
+        line-height: 1.2;
+      }
+
+      .article-meta {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        color: var(--text-muted);
+        font-size: 0.95rem;
+        flex-wrap: wrap;
+      }
+
+      .article-meta-item {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .article-content {
+        color: var(--text-secondary);
+        font-size: 1.1rem;
+        line-height: 1.8;
+      }
+
+      .article-content h2 {
+        color: var(--text-secondary);
+        font-size: 2rem;
+        font-weight: 700;
+        margin: 2.5rem 0 1.5rem 0;
+        position: relative;
+        padding-bottom: 0.5rem;
+      }
+
+      .article-content h2::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 60px;
+        height: 3px;
+        background: var(--gradient-primary);
+        border-radius: 2px;
+      }
+
+      .article-content h3 {
+        color: var(--text-secondary);
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin: 2rem 0 1rem 0;
+      }
+
+      .article-content p {
+        margin-bottom: 1.5rem;
+        text-align: justify;
+      }
+
+      .article-content ul, .article-content ol {
+        margin: 1.5rem 0;
+        padding-left: 2rem;
+      }
+
+      .article-content li {
+        margin-bottom: 0.75rem;
+      }
+
+      .article-content a {
+        color: #a8edea;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s ease;
+      }
+
+      .article-content a:hover {
+        color: #fed6e3;
+        text-decoration: underline;
+      }
+
+      .highlight-box {
+        background: linear-gradient(135deg, rgba(168, 237, 234, 0.1) 0%, rgba(254, 214, 227, 0.1) 100%);
+        border: 1px solid rgba(168, 237, 234, 0.2);
+        border-radius: 15px;
+        padding: 2rem;
+        margin: 2rem 0;
+        position: relative;
+      }
+
+      .highlight-box::before {
+        content: '🔍';
+        position: absolute;
+        top: 1rem;
+        left: 1.5rem;
+        font-size: 1.5rem;
+      }
+
+      .highlight-box p {
+        margin-left: 3rem;
+        font-style: italic;
+        font-weight: 500;
+      }
+
+      /* Call to Action */
+      .cta-section {
+        background: var(--card-bg);
+        border-radius: 20px;
+        padding: 2.5rem;
+        text-align: center;
+        border: 1px solid var(--card-border);
+        backdrop-filter: blur(10px);
+        transition: var(--theme-transition);
+      }
+
+      .cta-section h3 {
+        color: var(--text-secondary);
+        font-size: 1.8rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+      }
+
+      .cta-section p {
+        color: var(--text-muted);
+        margin-bottom: 1.5rem;
+      }
+
+      .cta-button {
+        display: inline-block;
+        background: var(--gradient-primary);
+        color: #333;
+        text-decoration: none;
+        padding: 1rem 2.5rem;
+        border-radius: 25px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        box-shadow: 0 8px 25px rgba(168, 237, 234, 0.3);
+      }
+
+      .cta-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 15px 35px rgba(168, 237, 234, 0.4);
+        color: #333;
+        text-decoration: none;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        body {
+          padding: 1rem 0.5rem;
+        }
+
+        .article-container {
+          padding: 2rem;
+        }
+
+        .article-title {
+          font-size: 2.2rem;
+        }
+
+        .article-meta {
+          flex-direction: column;
+          gap: 0.5rem;
+        }
+
+        .header-controls {
+          margin-bottom: 2rem;
+        }
+
+        .theme-toggle {
+          width: 50px;
+          height: 28px;
+        }
+
+        .theme-toggle::before {
+          width: 20px;
+          height: 20px;
+        }
+
+        [data-theme="light"] .theme-toggle::before {
+          transform: translateX(22px);
+        }
+      }
+
+      @media (max-width: 576px) {
+        .article-title {
+          font-size: 1.8rem;
+        }
+
+        .article-content h2 {
+          font-size: 1.6rem;
+        }
+
+        .highlight-box {
+          padding: 1.5rem;
+        }
+
+        .highlight-box p {
+          margin-left: 2rem;
+        }
+      }
+
+      /* Animations */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .fade-in {
+        animation: fadeInUp 0.8s ease-out;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header Controls -->
+    <div class="header-controls fade-in">
+      <a href="blog.html" class="back-button">
+        <i class="bi bi-arrow-left"></i>
+        <span>Back to Blog</span>
+      </a>
+      <div 
+        class="theme-toggle" 
+        onclick="toggleTheme()" 
+        title="Toggle Theme"
+        role="button"
+        aria-label="Toggle dark/light theme"
+        tabindex="0"
+      ></div>
+    </div>
+
+    <div class="container">
+      <!-- Article -->
+      <article class="article-container fade-in">
+        <header class="article-header">
+          <div class="article-category">SEO Tips</div>
+          <h1 class="article-title">SEO Best Practices for Small Businesses</h1>
+          <div class="article-meta">
+            <div class="article-meta-item">
+              <i class="bi bi-calendar3"></i>
+              <span>December 28, 2024</span>
+            </div>
+            <div class="article-meta-item">
+              <i class="bi bi-person-circle"></i>
+              <span>Eliud Waititu</span>
+            </div>
+            <div class="article-meta-item">
+              <i class="bi bi-clock"></i>
+              <span>7 min read</span>
+            </div>
+          </div>
+        </header>
+
+        <div class="article-content">
+          <p>
+            Search Engine Optimization (SEO) can seem overwhelming for small business owners, but it doesn't have to be. With the right approach and consistent effort, you can significantly improve your website's visibility in search results and attract more qualified customers. This guide will walk you through practical SEO strategies that work for small businesses in Kenya and beyond.
+          </p>
+
+          <h2>Understanding SEO Basics</h2>
+          <p>
+            SEO is the practice of optimizing your website to rank higher in search engine results pages (SERPs). When someone searches for products or services you offer, you want your website to appear as close to the top as possible. Higher rankings typically lead to more clicks, which means more potential customers.
+          </p>
+
+          <h3>Why SEO Matters for Small Businesses</h3>
+          <ul>
+            <li><strong>Cost-effective marketing:</strong> SEO provides long-term results without ongoing advertising costs</li>
+            <li><strong>Local visibility:</strong> Helps customers in your area find your business</li>
+            <li><strong>Builds credibility:</strong> Higher rankings make your business appear more trustworthy</li>
+            <li><strong>Competitive advantage:</strong> Many small businesses neglect SEO, giving you an opportunity to stand out</li>
+          </ul>
+
+          <div class="highlight-box">
+            <p>
+              Remember: SEO is a marathon, not a sprint. Results take time, but the long-term benefits are substantial for small businesses willing to invest in the process.
+            </p>
+          </div>
+
+          <h2>Keyword Research for Small Businesses</h2>
+          <p>
+            Keyword research is the foundation of effective SEO. You need to understand what terms your potential customers are using to search for your products or services.
+          </p>
+
+          <h3>Finding the Right Keywords</h3>
+
+          <h4>1. Start with Your Business</h4>
+          <p>
+            List all the products and services you offer. Think about how customers might describe what you do. For example, if you run a bakery in Nairobi, relevant keywords might include:
+          </p>
+          <ul>
+            <li>"fresh bread Nairobi"</li>
+            <li>"wedding cakes Kenya"</li>
+            <li>"birthday cakes delivery"</li>
+            <li>"artisan bakery Westlands"</li>
+          </ul>
+
+          <h4>2. Use Free Keyword Tools</h4>
+          <p>
+            Several free tools can help you research keywords:
+          </p>
+          <ul>
+            <li><a href="https://ads.google.com/home/tools/keyword-planner/" target="_blank">Google Keyword Planner</a> - Shows search volume and competition</li>
+            <li><a href="https://answerthepublic.com/" target="_blank">Answer The Public</a> - Reveals questions people ask</li>
+            <li><a href="https://trends.google.com/" target="_blank">Google Trends</a> - Shows keyword popularity over time</li>
+          </ul>
+
+          <h4>3. Focus on Long-Tail Keywords</h4>
+          <p>
+            Long-tail keywords are longer, more specific phrases that are easier to rank for and often have higher conversion rates. Instead of targeting "restaurant," try "best nyama choma restaurant Nakuru."
+          </p>
+
+          <h2>On-Page SEO Optimization</h2>
+          <p>
+            On-page SEO involves optimizing individual web pages to rank higher and earn more relevant traffic.
+          </p>
+
+          <h3>Essential On-Page Elements</h3>
+
+          <h4>Title Tags</h4>
+          <p>
+            Your page title is one of the most important SEO factors. Make it descriptive and include your main keyword:
+          </p>
+          <ul>
+            <li>Keep it under 60 characters</li>
+            <li>Include your primary keyword near the beginning</li>
+            <li>Make it compelling to encourage clicks</li>
+            <li>Example: "Professional Web Design Services in Nairobi | DrWeb-Ke"</li>
+          </ul>
+
+          <h4>Meta Descriptions</h4>
+          <p>
+            While not a direct ranking factor, meta descriptions influence click-through rates:
+          </p>
+          <ul>
+            <li>Keep them under 160 characters</li>
+            <li>Include relevant keywords naturally</li>
+            <li>Write compelling copy that encourages clicks</li>
+            <li>Include a call-to-action when appropriate</li>
+          </ul>
+
+          <h4>Header Tags (H1, H2, H3)</h4>
+          <p>
+            Use header tags to structure your content logically:
+          </p>
+          <ul>
+            <li>Use only one H1 tag per page (usually your main headline)</li>
+            <li>Include keywords in your headers naturally</li>
+            <li>Create a logical hierarchy (H1 > H2 > H3)</li>
+          </ul>
+
+          <h2>Local SEO for Small Businesses</h2>
+          <p>
+            Local SEO is crucial for businesses that serve customers in specific geographic areas. It helps you appear in local search results and Google Maps.
+          </p>
+
+          <h3>Google My Business Optimization</h3>
+          <p>
+            Your <a href="https://business.google.com/" target="_blank">Google My Business</a> profile is essential for local SEO:
+          </p>
+
+          <ul>
+            <li><strong>Complete your profile:</strong> Add all business information, photos, and descriptions</li>
+            <li><strong>Choose accurate categories:</strong> Select the most relevant business categories</li>
+            <li><strong>Encourage reviews:</strong> Ask satisfied customers to leave Google reviews</li>
+            <li><strong>Post updates regularly:</strong> Share news, offers, and events</li>
+            <li><strong>Add photos:</strong> Include high-quality images of your business, products, and team</li>
+          </ul>
+
+          <h3>Local Keywords and Content</h3>
+          <p>
+            Create content that targets local search terms:
+          </p>
+          <ul>
+            <li>Include your city and neighborhood in page titles and content</li>
+            <li>Create location-specific pages if you serve multiple areas</li>
+            <li>Write about local events and community involvement</li>
+            <li>Use local landmarks and references in your content</li>
+          </ul>
+
+          <h2>Content Marketing for SEO</h2>
+          <p>
+            Creating valuable, relevant content is one of the most effective ways to improve your SEO rankings while providing value to your customers.
+          </p>
+
+          <h3>Content Ideas for Small Businesses</h3>
+
+          <ul>
+            <li><strong>How-to guides:</strong> Teach customers how to use your products or solve problems</li>
+            <li><strong>Local guides:</strong> Create content about your local area and community</li>
+            <li><strong>Behind-the-scenes content:</strong> Show how your products are made or services delivered</li>
+            <li><strong>Customer success stories:</strong> Share testimonials and case studies</li>
+            <li><strong>Industry tips:</strong> Share your expertise and establish authority</li>
+          </ul>
+
+          <h3>Content Optimization Tips</h3>
+
+          <ul>
+            <li><strong>Write for humans first:</strong> Create valuable content that answers questions</li>
+            <li><strong>Use keywords naturally:</strong> Include relevant terms without over-optimizing</li>
+            <li><strong>Optimize images:</strong> Use descriptive file names and alt text</li>
+            <li><strong>Internal linking:</strong> Link to other relevant pages on your website</li>
+            <li><strong>Update regularly:</strong> Fresh content signals to search engines that your site is active</li>
+          </ul>
+
+          <div class="highlight-box">
+            <p>
+              Quality beats quantity every time. One well-researched, comprehensive article will outperform ten shallow posts in terms of SEO value and user engagement.
+            </p>
+          </div>
+
+          <h2>Technical SEO Basics</h2>
+          <p>
+            Technical SEO ensures that search engines can crawl and index your website effectively.
+          </p>
+
+          <h3>Essential Technical Elements</h3>
+
+          <h4>Website Speed</h4>
+          <p>
+            Page speed is a ranking factor and affects user experience:
+          </p>
+          <ul>
+            <li>Optimize images by compressing them</li>
+            <li>Choose reliable hosting</li>
+            <li>Use caching plugins if you're on WordPress</li>
+            <li>Minimize CSS and JavaScript files</li>
+          </ul>
+
+          <h4>Mobile-Friendliness</h4>
+          <p>
+            With mobile-first indexing, your website must work perfectly on mobile devices:
+          </p>
+          <ul>
+            <li>Use responsive design</li>
+            <li>Test your site on various devices</li>
+            <li>Ensure buttons and links are easily clickable</li>
+            <li>Make text readable without zooming</li>
+          </ul>
+
+          <h4>SSL Certificate</h4>
+          <p>
+            HTTPS is a ranking signal and builds trust with visitors. Most hosting providers offer free SSL certificates through Let's Encrypt.
+          </p>
+
+          <h2>Measuring SEO Success</h2>
+          <p>
+            Track your SEO progress to understand what's working and what needs improvement.
+          </p>
+
+          <h3>Key Metrics to Monitor</h3>
+
+          <ul>
+            <li><strong>Organic traffic:</strong> Visitors from search engines</li>
+            <li><strong>Keyword rankings:</strong> Where your pages rank for target keywords</li>
+            <li><strong>Click-through rates:</strong> Percentage of people who click your links in search results</li>
+            <li><strong>Bounce rate:</strong> Percentage of visitors who leave quickly</li>
+            <li><strong>Local visibility:</strong> How often you appear in local search results</li>
+          </ul>
+
+          <h3>Free SEO Tools</h3>
+
+          <ul>
+            <li><a href="https://analytics.google.com/" target="_blank">Google Analytics</a> - Track website traffic and user behavior</li>
+            <li><a href="https://search.google.com/search-console/" target="_blank">Google Search Console</a> - Monitor search performance and technical issues</li>
+            <li><a href="https://developers.google.com/speed/pagespeed/insights/" target="_blank">PageSpeed Insights</a> - Check website speed</li>
+            <li><a href="https://search.google.com/test/mobile-friendly" target="_blank">Mobile-Friendly Test</a> - Verify mobile compatibility</li>
+          </ul>
+
+          <h2>Common SEO Mistakes to Avoid</h2>
+
+          <ul>
+            <li><strong>Keyword stuffing:</strong> Using keywords unnaturally or excessively</li>
+            <li><strong>Neglecting local SEO:</strong> Missing opportunities for local visibility</li>
+            <li><strong>Ignoring mobile users:</strong> Not optimizing for mobile devices</li>
+            <li><strong>Copying content:</strong> Using duplicate content from other websites</li>
+            <li><strong>Buying backlinks:</strong> Purchasing low-quality links can harm your rankings</li>
+            <li><strong>Focusing only on rankings:</strong> Ignoring user experience and conversion optimization</li>
+          </ul>
+
+          <h2>Getting Started with SEO</h2>
+
+          <h3>Your SEO Action Plan</h3>
+
+          <ol>
+            <li><strong>Audit your current website:</strong> Identify technical issues and optimization opportunities</li>
+            <li><strong>Research keywords:</strong> Find terms your customers use to search for your services</li>
+            <li><strong>Optimize existing pages:</strong> Update titles, descriptions, and content</li>
+            <li><strong>Claim your Google My Business listing:</strong> Complete and optimize your local profile</li>
+            <li><strong>Create valuable content:</strong> Start a blog or resource section</li>
+            <li><strong>Monitor and adjust:</strong> Track progress and refine your strategy</li>
+          </ol>
+
+          <h2>Conclusion</h2>
+          <p>
+            SEO success for small businesses comes from consistent effort and focusing on providing value to your customers. Start with the basics: optimize your website for local search, create helpful content, and ensure your site works well for mobile users.
+          </p>
+
+          <p>
+            Remember that SEO is an ongoing process, not a one-time task. Stay patient, focus on your customers' needs, and gradually build your online presence. With time and dedication, you'll see improved search rankings and increased traffic to your website.
+          </p>
+
+          <p>
+            The most successful small businesses treat SEO as an investment in their long-term growth, not just a marketing tactic. By following these best practices and staying committed to providing value, your business can achieve meaningful results from search engine optimization.
+          </p>
+        </div>
+      </article>
+
+      <!-- Call to Action -->
+      <div class="cta-section fade-in">
+        <h3>Need Help with Your SEO Strategy?</h3>
+        <p>
+          Let's work together to improve your search engine rankings and drive more qualified traffic to your website.
+        </p>
+        <a href="contact.html" class="cta-button">
+          <i class="bi bi-search me-2"></i>
+          Boost Your SEO
+        </a>
+      </div>
+    </div>
+
+    <script>
+      // Theme Toggle Functionality
+      function toggleTheme() {
+        try {
+          const body = document.body;
+          if (!body) return;
+          
+          const currentTheme = body.getAttribute('data-theme');
+          const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+          
+          body.setAttribute('data-theme', newTheme);
+          localStorage.setItem('theme', newTheme);
+          
+          if (body.style) {
+            body.style.transition = 'all 0.3s ease';
+            setTimeout(() => {
+              if (body.style) {
+                body.style.transition = '';
+              }
+            }, 300);
+          }
+        } catch (error) {
+          console.error('Error toggling theme:', error);
+        }
+      }
+
+      // Load saved theme on page load
+      document.addEventListener('DOMContentLoaded', function() {
+        try {
+          const savedTheme = localStorage.getItem('theme') || 'dark';
+          if (document.body) {
+            document.body.setAttribute('data-theme', savedTheme);
+          }
+          
+          // Add fade-in animations
+          const fadeElements = document.querySelectorAll('.fade-in');
+          fadeElements.forEach((el, index) => {
+            if (el && el.style) {
+              el.style.animationDelay = `${index * 0.2}s`;
+            }
+          });
+        } catch (error) {
+          console.error('Error during initialization:', error);
+        }
+      });
+
+      // Listen for theme changes from other tabs
+      window.addEventListener('storage', function(e) {
+        try {
+          if (e.key === 'theme' && document.body) {
+            document.body.setAttribute('data-theme', e.newValue || 'dark');
+          }
+        } catch (error) {
+          console.error('Error in storage handler:', error);
+        }
+      });
+
+      // Keyboard support for theme toggle
+      document.addEventListener('keydown', function(e) {
+        try {
+          if (e.ctrlKey && e.key === 'l') {
+            e.preventDefault();
+            toggleTheme();
+          }
+        } catch (error) {
+          console.error('Error in keyboard handler:', error);
+        }
+      });
+
+      // Theme toggle accessibility
+      const themeToggle = document.querySelector('.theme-toggle');
+      if (themeToggle) {
+        themeToggle.addEventListener('keydown', function(e) {
+          try {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              toggleTheme();
+            }
+          } catch (error) {
+            console.error('Error in theme toggle handler:', error);
+          }
+        });
+      }
+
+      console.log('📝 SEO blog post loaded successfully!');
+    </script>
+  </body>
+</html>

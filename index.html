@@ -20,1109 +20,159 @@
     />
     <!-- Bootstrap icons-->
     <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css"
       rel="stylesheet"
     />
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="css/styles.css" rel="stylesheet" />
+    <!-- Custom CSS -->
+    <link href="css/theme.css" rel="stylesheet" />
+    <link href="css/components.css" rel="stylesheet" />
     
+    <!-- Additional CSS for social icons fix -->
     <style>
-      /* Theme Variables - Exact match with projects and contact pages */
-      :root {
-        --bg-primary: rgba(29, 28, 27, 0.945);
-        --bg-secondary: #fff;
-        --text-primary: #fff;
-        --text-secondary: #333;
-        --text-muted: #6c757d;
-        --card-bg: rgba(255, 255, 255, 0.95);
-        --card-border: rgba(255, 255, 255, 0.2);
-        --theme-transition: all 0.3s ease;
-      }
-
-      [data-theme="light"] {
-        --bg-primary: #f8f9fa;
-        --bg-secondary: #fff;
-        --text-primary: #333;
-        --text-secondary: #666;
-        --text-muted: #6c757d;
-        --card-bg: rgba(255, 255, 255, 0.9);
-        --card-border: rgba(0, 0, 0, 0.1);
-      }
-
-      /* Enhanced Body Styling */
-      body {
-        background-color: var(--bg-primary) !important;
-        color: var(--text-primary) !important;
-        transition: var(--theme-transition);
-      }
-
-      .text-white {
-        color: var(--text-primary) !important;
-      }
-
-      .text-muted-custom {
-        color: var(--text-muted) !important;
-      }
-
-      /* Theme Toggle Button - Exact match with other pages */
-      .theme-toggle {
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        z-index: 1000;
-        background: var(--card-bg);
-        border: 2px solid var(--card-border);
-        border-radius: 50px;
-        width: 60px;
-        height: 35px;
-        cursor: pointer;
-        transition: var(--theme-transition);
-        backdrop-filter: blur(10px);
-      }
-
-      .theme-toggle::before {
-        content: '';
-        position: absolute;
-        top: 3px;
-        left: 3px;
-        width: 25px;
-        height: 25px;
-        border-radius: 50%;
-        background: linear-gradient(135deg, #1e30f3 0%, #e21e80 100%);
-        transition: var(--theme-transition);
-      }
-
-      [data-theme="light"] .theme-toggle::before {
-        transform: translateX(25px);
-        background: linear-gradient(135deg, #ffc107 0%, #ff6b35 100%);
-      }
-
-      /* Enhanced Navigation - Match with other pages */
-      .navbar {
-        backdrop-filter: blur(10px);
-        background: rgba(0, 0, 0, 0.1) !important;
-        transition: var(--theme-transition);
-      }
-
-      /* Enhanced Profile Section */
-      .profile {
-        position: relative;
-        height: 75vw;
-        width: 75vw;
-        border-radius: 5vw;
-        margin-top: 5vw;
-        max-height: 40rem;
-        max-width: 40rem;
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-        transition: var(--theme-transition);
-      }
-
-      [data-theme="light"] .profile {
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-      }
-
-      .profile:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
-      }
-
-      [data-theme="light"] .profile:hover {
-        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
-      }
-
-      .profile .profile-img {
-        height: 80vw;
-        max-height: 45rem;
-        position: absolute;
-        bottom: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        transition: var(--theme-transition);
-      }
-
-      /* Enhanced decorative elements with theme support */
-      .profile .decorative-element {
-        position: absolute;
-        border-radius: 50%;
-        background: linear-gradient(135deg, #1e30f3 0%, #e21e80 100%);
-        animation: float 3s ease-in-out infinite;
-        opacity: 0.8;
-        transition: var(--theme-transition);
-      }
-
-      [data-theme="light"] .profile .decorative-element {
-        opacity: 0.6;
-      }
-
-      .profile .element-1 {
-        width: 20px;
-        height: 20px;
-        top: 10%;
-        right: 5%;
-        animation-delay: 0s;
-      }
-
-      .profile .element-2 {
-        width: 15px;
-        height: 15px;
-        top: 15%;
-        right: -8%;
-        background: var(--text-primary);
-        animation-delay: 0.5s;
-      }
-
-      .profile .element-3 {
-        width: 25px;
-        height: 25px;
-        bottom: 15%;
-        left: 5%;
-        animation-delay: 1s;
-      }
-
-      .profile .element-4 {
-        width: 18px;
-        height: 18px;
-        bottom: 10%;
-        left: -8%;
-        background: var(--text-primary);
-        animation-delay: 1.5s;
-      }
-
-      .profile .element-5 {
-        width: 12px;
-        height: 12px;
-        top: 30%;
-        left: -5%;
-        background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
-        animation-delay: 2s;
-      }
-
-      .profile .element-6 {
-        width: 22px;
-        height: 22px;
-        bottom: 30%;
-        right: -5%;
-        background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
-        animation-delay: 2.5s;
-      }
-
-      @keyframes float {
-        0%, 100% { transform: translateY(0px); }
-        50% { transform: translateY(-10px); }
-      }
-
-      /* Enhanced Buttons - Match with other pages */
-      .btn-enhanced {
-        border-radius: 25px;
-        padding: 0.75rem 2rem;
-        font-weight: 600;
-        transition: all 0.3s ease;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        position: relative;
-        overflow: hidden;
-      }
-
-      .btn-enhanced:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-      }
-
-      .btn-enhanced::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: -100%;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-        transition: left 0.5s;
-      }
-
-      .btn-enhanced:hover::before {
-        left: 100%;
-      }
-
-      /* Enhanced About Section */
-      .about-section {
-        background: var(--card-bg);
-        border-radius: 30px;
-        padding: 3rem;
-        margin: 2rem 0;
-        border: 1px solid var(--card-border);
-        backdrop-filter: blur(10px);
-        transition: var(--theme-transition);
-      }
-
-      .about-section:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-      }
-
-      .about-section h2, .about-section p {
-        color: var(--text-secondary) !important;
-        transition: var(--theme-transition);
-      }
-
-      .about-section .lead {
-        color: var(--text-muted) !important;
-      }
-
-      /* Social Links Enhancement */
       .social-links a {
+        color: #6c63ff !important;
+        text-decoration: none;
+        transition: all 0.3s ease;
         display: inline-flex;
         align-items: center;
         justify-content: center;
         width: 50px;
         height: 50px;
         border-radius: 50%;
-        background: var(--card-bg);
-        border: 2px solid var(--card-border);
-        transition: var(--theme-transition);
-        backdrop-filter: blur(10px);
-        color: var(--text-secondary) !important;
+        background: rgba(108, 99, 255, 0.1);
+        margin: 0 8px;
       }
-
+      
       .social-links a:hover {
-        transform: translateY(-3px) scale(1.1);
-        background: linear-gradient(135deg, #1e30f3 0%, #e21e80 100%);
-        color: white !important;
-        text-decoration: none;
+        background: rgba(108, 99, 255, 0.2);
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(108, 99, 255, 0.3);
       }
-
-      /* Enhanced Footer - Match with other pages */
-      footer {
-        background: var(--card-bg) !important;
-        border-top: 1px solid var(--card-border);
-        backdrop-filter: blur(10px);
-        transition: var(--theme-transition);
+      
+      .social-links i {
+        font-size: 1.5rem !important;
+        color: inherit !important;
       }
-
-      footer .small {
-        color: var(--text-muted) !important;
-        transition: var(--theme-transition);
+      
+      /* Dark theme support */
+      [data-theme="dark"] .social-links a {
+        background: rgba(108, 99, 255, 0.15);
+        color: #8b7fff !important;
       }
-
-      footer a.small {
-        color: var(--text-muted) !important;
-        text-decoration: none;
-        transition: all 0.3s ease;
-      }
-
-      footer a.small:hover {
-        color: var(--text-primary) !important;
-      }
-
-      /* Enhanced WhatsApp Float - Match with other pages */
-      .whatsapp-float {
-        position: fixed;
-        width: 60px;
-        height: 60px;
-        bottom: 40px;
-        right: 40px;
-        background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
-        color: #FFF;
-        border-radius: 50px;
-        text-align: center;
-        font-size: 30px;
-        box-shadow: 0 8px 25px rgba(37, 211, 102, 0.3);
-        z-index: 100;
-        transition: all 0.3s ease;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-decoration: none;
-      }
-
-      .whatsapp-float:hover {
-        transform: translateY(-5px) scale(1.1);
-        box-shadow: 0 15px 35px rgba(37, 211, 102, 0.4);
-        color: white;
-        text-decoration: none;
-      }
-
-      .whatsapp-float img {
-        width: 35px;
-        height: 35px;
-      }
-
-      /* Badge Enhancement */
-      .badge {
-        border-radius: 25px;
-        padding: 0.5rem 1.5rem;
-        font-weight: 500;
-        backdrop-filter: blur(10px);
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        transition: var(--theme-transition);
-      }
-
-      /* Responsive Design - Match with other pages */
-      @media (max-width: 768px) {
-        .theme-toggle {
-          top: 10px;
-          right: 10px;
-          width: 50px;
-          height: 30px;
-        }
-
-        .theme-toggle::before {
-          width: 22px;
-          height: 22px;
-        }
-
-        [data-theme="light"] .theme-toggle::before {
-          transform: translateX(20px);
-        }
-
-        .about-section {
-          padding: 2rem;
-          margin: 1rem;
-        }
-
-        .whatsapp-float {
-          width: 50px;
-          height: 50px;
-          bottom: 20px;
-          right: 20px;
-        }
-
-        .whatsapp-float img {
-          width: 28px;
-          height: 28px;
-        }
-      }
-
-      /* Animations */
-      @keyframes fadeInUp {
-        from {
-          opacity: 0;
-          transform: translateY(30px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      .fade-in-up {
-        animation: fadeInUp 0.8s ease-out;
-      }
-
-      /* Header specific styling */
-      .header-content {
-        transition: var(--theme-transition);
-      }
-
-      /* Text gradient that adapts to theme */
-      .text-gradient {
-        background: linear-gradient(135deg, #1e30f3 0%, #e21e80 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
+      
+      [data-theme="dark"] .social-links a:hover {
+        background: rgba(108, 99, 255, 0.25);
       }
     </style>
   </head>
   <body class="d-flex flex-column h-100">
-    <!-- Theme Toggle Button -->
-    <div class="theme-toggle" onclick="toggleTheme()" title="Toggle Theme"></div>
-
     <main class="flex-shrink-0">
-      <!-- Navigation-->
-     <!-- ENHANCED NAVIGATION BAR - Copy this entire section to all your pages -->
-
-<!-- CSS for Enhanced Navigation - Add this to your <style> section -->
-<style>
-/* Hide the original theme toggle to prevent duplicates */
-.theme-toggle {
-  display: none !important;
-}
-
-/* Enhanced Navigation Bar */
-.navbar-enhanced {
-  backdrop-filter: blur(20px);
-  background: rgba(0, 0, 0, 0.1) !important;
-  transition: var(--theme-transition);
-  border-bottom: 1px solid var(--card-border);
-  padding: 1rem 0;
-  position: relative;
-  z-index: 1050; /* Higher than Bootstrap's modal z-index */
-}
-
-[data-theme="light"] .navbar-enhanced {
-  background: rgba(255, 255, 255, 0.1) !important;
-}
-
-.navbar-enhanced.scrolled {
-  background: rgba(0, 0, 0, 0.95) !important;
-  backdrop-filter: blur(30px);
-  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
-}
-
-[data-theme="light"] .navbar-enhanced.scrolled {
-  background: rgba(255, 255, 255, 0.95) !important;
-}
-
-/* Brand Enhancement */
-.navbar-brand-enhanced {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--text-primary) !important;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  position: relative;
-}
-
-.navbar-brand-enhanced:hover {
-  transform: translateY(-2px);
-  color: var(--text-primary) !important;
-  text-decoration: none;
-}
-
-.navbar-brand-enhanced::after {
-  content: '';
-  position: absolute;
-  bottom: -3px;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background: linear-gradient(135deg, #1e30f3 0%, #e21e80 100%);
-  transition: width 0.3s ease;
-}
-
-.navbar-brand-enhanced:hover::after {
-  width: 100%;
-}
-
-/* Add mobile menu overlay for better UX */
-.mobile-menu-overlay {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.3);
-  z-index: 1049; /* Below navbar but above content */
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.mobile-menu-overlay.show {
-  display: block;
-  opacity: 1;
-}
-
-/* Ensure navbar container has proper stacking */
-.navbar-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
-  position: relative;
-  z-index: inherit;
-}
-
-/* Navigation Links */
-.navbar-nav-enhanced {
-  display: flex;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  gap: 2rem;
-  align-items: center;
-}
-
-.nav-item-enhanced {
-  position: relative;
-}
-
-.nav-link-enhanced {
-  color: var(--text-primary) !important;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 0.95rem;
-  padding: 0.75rem 1.25rem;
-  border-radius: 25px;
-  transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
-  display: inline-block;
-}
-
-.nav-link-enhanced::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
-  transition: left 0.5s;
-  z-index: 1;
-}
-
-.nav-link-enhanced:hover::before {
-  left: 100%;
-}
-
-.nav-link-enhanced:hover {
-  background: var(--card-bg);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-  color: var(--text-primary) !important;
-  text-decoration: none;
-}
-
-.nav-link-enhanced i {
-  position: relative;
-  z-index: 2;
-}
-
-.nav-link-enhanced span {
-  position: relative;
-  z-index: 2;
-}
-
-.nav-link-enhanced.active {
-  background: linear-gradient(135deg, #1e30f3 0%, #e21e80 100%);
-  color: white !important;
-  box-shadow: 0 4px 15px rgba(30, 48, 243, 0.3);
-}
-
-.nav-link-enhanced.active:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(30, 48, 243, 0.4);
-}
-
-/* Navigation Controls Container */
-.nav-controls {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
-/* Enhanced Theme Toggle */
-.theme-toggle-nav {
-  background: var(--card-bg);
-  border: 2px solid var(--card-border);
-  border-radius: 50px;
-  width: 55px;
-  height: 32px;
-  cursor: pointer;
-  transition: var(--theme-transition);
-  backdrop-filter: blur(10px);
-  position: relative;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  z-index: 1052; /* Same as mobile toggle for consistency */
-}
-
-.theme-toggle-nav:hover {
-  transform: scale(1.05);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-}
-
-.theme-toggle-nav::before {
-  content: '';
-  position: absolute;
-  top: 2px;
-  left: 2px;
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #1e30f3 0%, #e21e80 100%);
-  transition: var(--theme-transition);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-}
-
-[data-theme="light"] .theme-toggle-nav::before {
-  transform: translateX(23px);
-  background: linear-gradient(135deg, #ffc107 0%, #ff6b35 100%);
-}
-
-/* Enhanced Mobile Menu Toggle */
-.mobile-menu-toggle {
-  display: none;
-  flex-direction: column;
-  background: var(--card-bg);
-  border: 2px solid var(--card-border);
-  border-radius: 15px;
-  padding: 0.75rem;
-  cursor: pointer;
-  transition: var(--theme-transition);
-  backdrop-filter: blur(10px);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  position: relative;
-  z-index: 1052; /* Highest z-index for the toggle button */
-}
-
-.mobile-menu-toggle:hover {
-  transform: scale(1.05);
-  background: linear-gradient(135deg, #1e30f3 0%, #e21e80 100%);
-}
-
-.mobile-menu-toggle:hover .hamburger-line {
-  background: white;
-}
-
-.hamburger-line {
-  width: 25px;
-  height: 3px;
-  background: var(--text-primary);
-  margin: 3px 0;
-  transition: all 0.3s ease;
-  border-radius: 2px;
-}
-
-.mobile-menu-toggle.active .hamburger-line:nth-child(1) {
-  transform: rotate(45deg) translate(9px, 9px);
-}
-
-.mobile-menu-toggle.active .hamburger-line:nth-child(2) {
-  opacity: 0;
-}
-
-.mobile-menu-toggle.active .hamburger-line:nth-child(3) {
-  transform: rotate(-45deg) translate(9px, -9px);
-}
-
-/* Mobile Navigation */
-.navbar-nav-mobile {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  right: 0;
-  background: var(--card-bg);
-  border: 1px solid var(--card-border);
-  border-radius: 20px;
-  margin: 1rem 2rem;
-  padding: 1.5rem;
-  backdrop-filter: blur(20px);
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-  z-index: 1051; /* Higher than navbar */
-  animation: slideDown 0.3s ease-out;
-}
-
-.navbar-nav-mobile.show {
-  display: block;
-}
-
-/* Enhanced mobile menu link styling for better contrast */
-.navbar-nav-mobile .nav-link-enhanced {
-  display: block;
-  width: 100%;
-  text-align: center;
-  margin: 0.5rem 0;
-  padding: 1rem 1.5rem;
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 15px;
-  color: var(--text-secondary) !important;
-  font-weight: 600;
-  transition: all 0.3s ease;
-}
-
-/* Light theme mobile menu styling */
-[data-theme="light"] .navbar-nav-mobile {
-  background: rgba(255, 255, 255, 0.95);
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
-}
-
-[data-theme="light"] .navbar-nav-mobile .nav-link-enhanced {
-  background: rgba(0, 0, 0, 0.05);
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  color: #333 !important;
-}
-
-/* Mobile menu hover states */
-.navbar-nav-mobile .nav-link-enhanced:hover {
-  background: linear-gradient(135deg, #1e30f3 0%, #e21e80 100%);
-  color: white !important;
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(30, 48, 243, 0.3);
-}
-
-.navbar-nav-mobile .nav-link-enhanced.active {
-  background: linear-gradient(135deg, #1e30f3 0%, #e21e80 100%);
-  color: white !important;
-  box-shadow: 0 4px 15px rgba(30, 48, 243, 0.3);
-}
-
-/* Mobile menu icons */
-.navbar-nav-mobile .nav-link-enhanced i {
-  font-size: 1.1rem;
-  margin-right: 0.75rem;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  .navbar-container {
-    padding: 0 1rem;
-  }
-  
-  .navbar-nav-enhanced {
-    display: none;
-  }
-  
-  .mobile-menu-toggle {
-    display: flex;
-  }
-  
-  .theme-toggle-nav {
-    width: 50px;
-    height: 28px;
-  }
-  
-  .theme-toggle-nav::before {
-    width: 20px;
-    height: 20px;
-    top: 2px;
-    left: 2px;
-  }
-  
-  [data-theme="light"] .theme-toggle-nav::before {
-    transform: translateX(22px);
-  }
-}
-
-@media (max-width: 576px) {
-  .navbar-container {
-    padding: 0 0.5rem;
-  }
-  
-  .nav-controls {
-    gap: 0.5rem;
-  }
-  
-  .navbar-brand-enhanced {
-    font-size: 1.3rem;
-  }
-}
-
-/* Animation Keyframes */
-@keyframes slideDown {
-  from {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Active page indicator */
-.nav-item-enhanced::after {
-  content: '';
-  position: absolute;
-  bottom: -10px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #1e30f3 0%, #e21e80 100%);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.nav-item-enhanced.current-page::after {
-  opacity: 1;
-}
-
-/* Logo enhancement for better branding */
-.brand-logo {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.brand-logo i {
-  font-size: 1.2rem;
-  background: linear-gradient(135deg, #1e30f3 0%, #e21e80 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-</style>
-
-<!-- HTML for Enhanced Navigation - Replace your existing navbar with this -->
-<nav class="navbar-enhanced">
-  <div class="navbar-container">
-    <!-- Brand -->
-    <a class="navbar-brand-enhanced" href="index.html">
-      <span class="brand-logo">
-        <i class="bi bi-code-slash"></i>
-        Eliud Waititu
-      </span>
-    </a>
-
-    <!-- Desktop Navigation -->
-    <ul class="navbar-nav-enhanced">
-      <li class="nav-item-enhanced">
-        <a class="nav-link-enhanced" href="index.html" data-page="home">
-          <i class="bi bi-house me-1"></i>
-          <span>Home</span>
-        </a>
-      </li>
-      <li class="nav-item-enhanced">
-        <a class="nav-link-enhanced" href="resume.html" data-page="resume">
-          <i class="bi bi-file-person me-1"></i>
-          <span>Resume</span>
-        </a>
-      </li>
-      <li class="nav-item-enhanced">
-        <a class="nav-link-enhanced" href="projects.html" data-page="projects">
-          <i class="bi bi-folder me-1"></i>
-          <span>Projects</span>
-        </a>
-      </li>
-      <li class="nav-item-enhanced">
-        <a class="nav-link-enhanced" href="contact.html" data-page="contact">
-          <i class="bi bi-envelope me-1"></i>
-          <span>Contact</span>
-        </a>
-      </li>
-    </ul>
-
-    <!-- Navigation Controls -->
-    <div class="nav-controls">
-      <!-- Theme Toggle -->
-      <div 
-        class="theme-toggle-nav" 
-        onclick="toggleTheme()" 
-        title="Toggle Theme (Ctrl+L)"
-        role="button"
-        aria-label="Toggle dark/light theme"
-        tabindex="0"
-      ></div>
-
-      <!-- Mobile Menu Toggle -->
-      <div class="mobile-menu-toggle" onclick="toggleMobileMenu()">
-        <div class="hamburger-line"></div>
-        <div class="hamburger-line"></div>
-        <div class="hamburger-line"></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Mobile Menu Overlay -->
-  <div class="mobile-menu-overlay" id="mobileMenuOverlay" onclick="closeMobileMenu()"></div>
-
-  <!-- Mobile Navigation Menu -->
-  <div class="navbar-nav-mobile" id="mobileNavMenu">
-    <a class="nav-link-enhanced" href="index.html" data-page="home">
-      <i class="bi bi-house me-2"></i>
-      <span>Home</span>
-    </a>
-    <a class="nav-link-enhanced" href="resume.html" data-page="resume">
-      <i class="bi bi-file-person me-2"></i>
-      <span>Resume</span>
-    </a>
-    <a class="nav-link-enhanced" href="projects.html" data-page="projects">
-      <i class="bi bi-folder me-2"></i>
-      <span>Projects</span>
-    </a>
-    <a class="nav-link-enhanced" href="contact.html" data-page="contact">
-      <i class="bi bi-envelope me-2"></i>
-      <span>Contact</span>
-    </a>
-  </div>
-</nav>
-
-<!-- JavaScript for Enhanced Navigation - Add this to your <script> section -->
-<script>
-// Enhanced Navigation Functionality
-function toggleMobileMenu() {
-  const mobileMenu = document.getElementById('mobileNavMenu');
-  const mobileOverlay = document.getElementById('mobileMenuOverlay');
-  const toggleButton = document.querySelector('.mobile-menu-toggle');
-  
-  const isOpen = mobileMenu.classList.contains('show');
-  
-  if (isOpen) {
-    closeMobileMenu();
-  } else {
-    openMobileMenu();
-  }
-}
-
-function openMobileMenu() {
-  const mobileMenu = document.getElementById('mobileNavMenu');
-  const mobileOverlay = document.getElementById('mobileMenuOverlay');
-  const toggleButton = document.querySelector('.mobile-menu-toggle');
-  
-  mobileMenu.classList.add('show');
-  mobileOverlay.classList.add('show');
-  toggleButton.classList.add('active');
-  
-  // Prevent body scroll when menu is open
-  document.body.style.overflow = 'hidden';
-}
-
-function closeMobileMenu() {
-  const mobileMenu = document.getElementById('mobileNavMenu');
-  const mobileOverlay = document.getElementById('mobileMenuOverlay');
-  const toggleButton = document.querySelector('.mobile-menu-toggle');
-  
-  mobileMenu.classList.remove('show');
-  mobileOverlay.classList.remove('show');
-  toggleButton.classList.remove('active');
-  
-  // Restore body scroll
-  document.body.style.overflow = '';
-}
-
-function closeMobileMenuOutside(event) {
-  const mobileMenu = document.getElementById('mobileNavMenu');
-  const toggleButton = document.querySelector('.mobile-menu-toggle');
-  const navbar = document.querySelector('.navbar-enhanced');
-  
-  if (!navbar.contains(event.target)) {
-    closeMobileMenu();
-    document.removeEventListener('click', closeMobileMenuOutside);
-  }
-}
-
-// Enhanced navbar scroll effect
-function updateNavbarOnScroll() {
-  const navbar = document.querySelector('.navbar-enhanced');
-  const scrolled = window.scrollY > 50;
-  
-  if (scrolled) {
-    navbar.classList.add('scrolled');
-  } else {
-    navbar.classList.remove('scrolled');
-  }
-}
-
-// Set active page indicator
-function setActivePage() {
-  const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-  const navLinks = document.querySelectorAll('.nav-link-enhanced');
-  
-  navLinks.forEach(link => {
-    const linkPage = link.getAttribute('href');
-    const parentItem = link.closest('.nav-item-enhanced');
-    
-    // Remove active classes
-    link.classList.remove('active');
-    if (parentItem) parentItem.classList.remove('current-page');
-    
-    // Add active class to current page
-    if (linkPage === currentPage || 
-        (currentPage === '' && linkPage === 'index.html') ||
-        (currentPage === 'index.html' && linkPage === 'index.html')) {
-      link.classList.add('active');
-      if (parentItem) parentItem.classList.add('current-page');
-    }
-  });
-}
-
-// Keyboard navigation support
-function handleNavKeyboard(event) {
-  if (event.key === 'Escape') {
-    const mobileMenu = document.getElementById('mobileNavMenu');
-    
-    if (mobileMenu.classList.contains('show')) {
-      closeMobileMenu();
-    }
-  }
-  
-  // Theme toggle keyboard support
-  if (event.ctrlKey && event.key === 'l') {
-    event.preventDefault();
-    toggleTheme();
-  }
-}
-
-// Enhanced theme toggle with navbar integration
-function toggleTheme() {
-  const body = document.body;
-  const currentTheme = body.getAttribute('data-theme');
-  const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-  
-  body.setAttribute('data-theme', newTheme);
-  localStorage.setItem('theme', newTheme);
-  
-  // Add smooth transition
-  body.style.transition = 'all 0.3s ease';
-  setTimeout(() => {
-    body.style.transition = '';
-  }, 300);
-
-  // Sync across tabs
-  localStorage.setItem('theme-timestamp', Date.now().toString());
-}
-
-// Enhanced navigation initialization
-document.addEventListener('DOMContentLoaded', function() {
-  // Set active page
-  setActivePage();
-  
-  // Initialize scroll effect
-  updateNavbarOnScroll();
-  
-  // Load saved theme
-  const savedTheme = localStorage.getItem('theme') || 'dark';
-  document.body.setAttribute('data-theme', savedTheme);
-  
-  // Add smooth hover effects without flickering
-  const navLinks = document.querySelectorAll('.nav-link-enhanced');
-  navLinks.forEach(link => {
-    let hoverTimeout;
-    
-    link.addEventListener('mouseenter', function() {
-      clearTimeout(hoverTimeout);
-      if (!this.classList.contains('active')) {
-        this.style.transform = 'translateY(-2px)';
-      }
-    });
-    
-    link.addEventListener('mouseleave', function() {
-      clearTimeout(hoverTimeout);
-      hoverTimeout = setTimeout(() => {
-        if (!this.classList.contains('active')) {
-          this.style.transform = 'translateY(0)';
-        }
-      }, 50);
-    });
-  });
-  
-  // Close mobile menu when clicking nav links
-  const mobileNavLinks = document.querySelectorAll('.navbar-nav-mobile .nav-link-enhanced');
-  mobileNavLinks.forEach(link => {
-    link.addEventListener('click', function() {
-      closeMobileMenu();
-    });
-  });
-});
-
-// Event listeners
-window.addEventListener('scroll', updateNavbarOnScroll);
-document.addEventListener('keydown', handleNavKeyboard);
-
-// Theme toggle accessibility
-document.querySelector('.theme-toggle-nav').addEventListener('keydown', function(e) {
-  if (e.key === 'Enter' || e.key === ' ') {
-    e.preventDefault();
-    toggleTheme();
-  }
-});
-
-// Listen for theme changes from other tabs
-window.addEventListener('storage', function(e) {
-  if (e.key === 'theme') {
-    document.body.setAttribute('data-theme', e.newValue || 'dark');
-  }
-});
-
-console.log('🎯 Enhanced Navigation Bar initialized successfully!');
-</script>
-
-<!-- END ENHANCED NAVIGATION BAR SECTION -->
+      <!-- Enhanced Navigation -->
+      <nav class="navbar-enhanced">
+        <div class="navbar-container">
+          <!-- Brand -->
+          <a class="navbar-brand-enhanced" href="index.html">
+            <span class="brand-logo">
+              <i class="bi bi-code-slash"></i>
+              Eliud Waititu
+            </span>
+          </a>
+
+          
+         <!-- Desktop Navigation -->
+          <ul class="navbar-nav-enhanced">
+            <li class="nav-item-enhanced">
+              <a class="nav-link-enhanced" href="index.html" data-page="home">
+                <i class="bi bi-house me-1"></i>
+                <span>Home</span>
+              </a>
+            </li>
+            <li class="nav-item-enhanced">
+              <a class="nav-link-enhanced" href="resume.html" data-page="resume">
+                <i class="bi bi-file-person me-1"></i>
+                <span>Resume</span>
+              </a>
+            </li>
+            <li class="nav-item-enhanced">
+              <a class="nav-link-enhanced" href="projects.html" data-page="projects">
+                <i class="bi bi-folder me-1"></i>
+                <span>Projects</span>
+              </a>
+            </li>
+            <li class="nav-item-enhanced">
+              <a class="nav-link-enhanced" href="contact.html" data-page="contact">
+                <i class="bi bi-envelope me-1"></i>
+                <span>Contact</span>
+              </a>
+            </li>
+            <li class="nav-item-enhanced">
+              <a class="nav-link-enhanced" href="price.html" data-page="pricing">
+                <i class="bi bi-tags me-1"></i>
+                <span>Pricing</span>
+              </a>
+            </li>
+            <li class="nav-item-enhanced">
+              <a class="nav-link-enhanced active" href="blog.html" data-page="blog">
+                <i class="bi bi-journal-text me-1"></i>
+                <span>Blog</span>
+              </a>
+            </li>
+          </ul>
+
+          <!-- Navigation Controls -->
+          <div class="nav-controls">
+            <!-- Theme Toggle -->
+            <div 
+              class="theme-toggle-nav" 
+              id="themeToggle"
+              title="Toggle Theme (Ctrl+L)"
+              role="button"
+              aria-label="Toggle dark/light theme"
+              tabindex="0"
+            ></div>
+
+            <!-- Mobile Menu Toggle -->
+            <div class="mobile-menu-toggle" id="mobileMenuToggle">
+              <div class="hamburger-line"></div>
+              <div class="hamburger-line"></div>
+              <div class="hamburger-line"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+
+        <!-- Mobile Navigation Menu -->
+        <div class="navbar-nav-mobile" id="mobileNavMenu">
+          <a class="nav-link-enhanced" href="index.html" data-page="home">
+            <i class="bi bi-house me-2"></i>
+            <span>Home</span>
+          </a>
+          <a class="nav-link-enhanced" href="resume.html" data-page="resume">
+            <i class="bi bi-file-person me-2"></i>
+            <span>Resume</span>
+          </a>
+          <a class="nav-link-enhanced" href="projects.html" data-page="projects">
+            <i class="bi bi-folder me-2"></i>
+            <span>Projects</span>
+          </a>
+          <a class="nav-link-enhanced" href="contact.html" data-page="contact">
+            <i class="bi bi-envelope me-2"></i>
+            <span>Contact</span>
+          </a>
+          <a class="nav-link-enhanced" href="price.html" data-page="pricing">
+            <i class="bi bi-tags me-2"></i>
+            <span>Pricing</span>
+          </a>
+          <a class="nav-link-enhanced active" href="blog.html" data-page="blog">
+            <i class="bi bi-journal-text me-2"></i>
+            <span>Blog</span>
+          </a>
+        </div>
+      </nav>
 
       <!-- Header-->
       <header class="py-1">
@@ -1152,7 +202,7 @@ console.log('🎯 Enhanced Navigation Bar initialized successfully!');
                   </a>
                   <a
                     class="btn text-white border-white btn-enhanced rounded-5 btn-lg px-5 py-3 fs-6 fw-bolder"
-                    onclick="handleCall()"
+                    id="callButton"
                   >
                     <i class="bi bi-telephone me-2"></i>
                     Call Me
@@ -1166,7 +216,7 @@ console.log('🎯 Enhanced Navigation Bar initialized successfully!');
                 <div class="profile bg-gradient-primary-to-secondary">
                   <img
                     class="profile-img"
-                    src="assets\I20241213-WA0051-removebg-preview.png"
+                    src="assets/images/I20241213-WA0051-removebg-preview.png"
                     alt="Eliud Waititu - Web Developer"
                   />
                   <!-- Enhanced decorative elements with theme support -->
@@ -1202,30 +252,29 @@ console.log('🎯 Enhanced Navigation Bar initialized successfully!');
                   and put your brand boldly on the web. Whether you're a startup
                   or an established brand, I'm here to help you thrive online."
                 </p>
-                <div class="d-flex justify-content-center fs-2 gap-4 social-links">
+                
+                <!-- Fixed Social Links -->
+                <div class="social-links d-flex justify-content-center align-items-center mt-4">
                   <a
-                    class="text-gradient"
                     href="https://www.linkedin.com/in/eliud-gachuki-278aa52aa"
                     target="_blank"
-                    title="LinkedIn Profile"
+                    title="Connect with me on LinkedIn"
                     rel="noopener noreferrer"
                   >
                     <i class="bi bi-linkedin"></i>
                   </a>
                   <a 
-                    class="text-gradient" 
                     href="https://github.com/Eliudgt3rs"
                     target="_blank"
-                    title="GitHub Profile"
+                    title="Check out my GitHub repositories"
                     rel="noopener noreferrer"
                   >
                     <i class="bi bi-github"></i>
                   </a>
                   <a 
-                    class="text-gradient" 
                     href="https://www.youtube.com/@drwebkenya"
                     target="_blank"
-                    title="YouTube Channel"
+                    title="Subscribe to my YouTube channel"
                     rel="noopener noreferrer"
                   >
                     <i class="bi bi-youtube"></i>
@@ -1256,11 +305,6 @@ console.log('🎯 Enhanced Navigation Bar initialized successfully!');
       </div>
     </footer>
 
-    <!-- Bootstrap core JS-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Core theme JS-->
-    <script src="js/scripts.js"></script>
-
     <!-- Enhanced WhatsApp Float Button -->
     <a
       href="https://wa.me/254719790026?text=Hi%20Eliud%2C%20I%20checked%20your%20portfolio%20and%20I'm%20interested%20in%20your%20web%20development%20services!"
@@ -1276,529 +320,35 @@ console.log('🎯 Enhanced Navigation Bar initialized successfully!');
       />
     </a>
 
-    <!-- SCROLL TO TOP BUTTON - Copy this entire section to all your pages -->
+    <!-- Scroll to Top Button -->
+    <button
+      class="scroll-to-top"
+      id="scrollToTopBtn"
+      title="Scroll to Top"
+      aria-label="Scroll to top of page"
+    >
+      <i class="bi bi-arrow-up"></i>
+    </button>
 
-<!-- CSS for Scroll to Top Button - Add this to your <style> section -->
-<style>
-/* Enhanced Scroll to Top Button */
-.scroll-to-top {
-  position: fixed;
-  bottom: 120px;
-  right: 40px;
-  width: 50px;
-  height: 50px;
-  background: var(--card-bg);
-  border: 2px solid var(--card-border);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(20px);
-  transition: all 0.3s ease;
-  z-index: 98;
-  backdrop-filter: blur(10px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-}
-
-.scroll-to-top.show {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
-}
-
-.scroll-to-top:hover {
-  transform: translateY(-3px) scale(1.1);
-  background: linear-gradient(135deg, #1e30f3 0%, #e21e80 100%);
-  border-color: transparent;
-  box-shadow: 0 15px 35px rgba(30, 48, 243, 0.3);
-}
-
-.scroll-to-top:hover i {
-  color: white !important;
-  transform: translateY(-2px);
-}
-
-.scroll-to-top i {
-  font-size: 1.2rem;
-  color: var(--text-secondary);
-  transition: all 0.3s ease;
-}
-
-/* Progress ring for scroll indicator */
-.scroll-to-top::before {
-  content: '';
-  position: absolute;
-  top: -2px;
-  left: -2px;
-  right: -2px;
-  bottom: -2px;
-  border-radius: 50%;
-  background: conic-gradient(from 0deg, #1e30f3 0deg, #e21e80 var(--scroll-progress, 0deg), transparent var(--scroll-progress, 0deg));
-  z-index: -1;
-  transition: all 0.3s ease;
-}
-
-.scroll-to-top:hover::before {
-  background: conic-gradient(from 0deg, #1e30f3 0deg, #e21e80 360deg);
-  animation: rotate 2s linear infinite;
-}
-
-@keyframes rotate {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .scroll-to-top {
-    bottom: 90px;
-    right: 20px;
-    width: 45px;
-    height: 45px;
-  }
-  
-  .scroll-to-top i {
-    font-size: 1rem;
-  }
-}
-
-/* Smooth scroll behavior */
-html {
-  scroll-behavior: smooth;
-}
-
-/* Enhanced scroll animation */
-.scroll-to-top.animate {
-  animation: bounceUp 0.6s ease-out;
-}
-
-@keyframes bounceUp {
-  0% { transform: translateY(0) scale(1); }
-  50% { transform: translateY(-10px) scale(1.1); }
-  100% { transform: translateY(0) scale(1); }
-}
-</style>
-
-<!-- HTML for Scroll to Top Button - Add this before closing </body> tag -->
-<button
-  class="scroll-to-top"
-  onclick="scrollToTop()"
-  title="Scroll to Top"
-  aria-label="Scroll to top of page"
->
-  <i class="bi bi-arrow-up"></i>
-</button>
-
-<!-- JavaScript for Scroll to Top Button - Add this to your <script> section -->
-<script>
-// Enhanced Scroll to Top Functionality
-function scrollToTop() {
-  // Add bounce animation
-  const scrollBtn = document.querySelector('.scroll-to-top');
-  scrollBtn.classList.add('animate');
-  
-  // Smooth scroll to top
-  window.scrollTo({
-    top: 0,
-    behavior: 'smooth'
-  });
-  
-  // Remove animation class after animation completes
-  setTimeout(() => {
-    scrollBtn.classList.remove('animate');
-  }, 600);
-}
-
-// Show/hide scroll to top button with progress indicator
-function updateScrollToTop() {
-  const scrollBtn = document.querySelector('.scroll-to-top');
-  const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-  const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-  const scrollPercent = (scrollTop / docHeight) * 100;
-  const scrollDegrees = (scrollPercent / 100) * 360;
-  
-  // Update progress ring
-  scrollBtn.style.setProperty('--scroll-progress', `${scrollDegrees}deg`);
-  
-  // Show/hide button based on scroll position
-  if (scrollTop > 300) {
-    scrollBtn.classList.add('show');
-  } else {
-    scrollBtn.classList.remove('show');
-  }
-}
-
-// Throttled scroll event for performance
-let scrollTimeout;
-window.addEventListener('scroll', function() {
-  if (scrollTimeout) {
-    clearTimeout(scrollTimeout);
-  }
-  scrollTimeout = setTimeout(updateScrollToTop, 10);
-});
-
-// Keyboard accessibility for scroll to top
-document.addEventListener('keydown', function(e) {
-  // Ctrl + Home to scroll to top
-  if (e.ctrlKey && e.key === 'Home') {
-    e.preventDefault();
-    scrollToTop();
-  }
-  
-  // Alt + T for scroll to top (alternative shortcut)
-  if (e.altKey && e.key === 't') {
-    e.preventDefault();
-    scrollToTop();
-  }
-});
-
-// Initialize scroll to top on page load
-document.addEventListener('DOMContentLoaded', function() {
-  updateScrollToTop();
-  
-  // Add intersection observer for enhanced UX
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      const scrollBtn = document.querySelector('.scroll-to-top');
-      if (entry.isIntersecting) {
-        // If top of page is visible, hide the button
-        scrollBtn.classList.remove('show');
-      }
-    });
-  });
-  
-  // Observe the first element of the page
-  const firstElement = document.querySelector('nav, header, main');
-  if (firstElement) {
-    observer.observe(firstElement);
-  }
-});
-
-// Add touch support for mobile devices
-document.querySelector('.scroll-to-top').addEventListener('touchstart', function(e) {
-  e.preventDefault();
-  this.style.transform = 'scale(0.95)';
-});
-
-document.querySelector('.scroll-to-top').addEventListener('touchend', function(e) {
-  e.preventDefault();
-  this.style.transform = 'scale(1)';
-  scrollToTop();
-});
-
-// Enhanced scroll to top with easing function
-function smoothScrollToTop() {
-  const currentScroll = document.documentElement.scrollTop || document.body.scrollTop;
-  if (currentScroll > 0) {
-    window.requestAnimationFrame(smoothScrollToTop);
-    window.scrollTo(0, currentScroll - (currentScroll / 8));
-  }
-}
-
-// Alternative scroll function for browsers that don't support smooth scroll
-function fallbackScrollToTop() {
-  const scrollBtn = document.querySelector('.scroll-to-top');
-  
-  // Check if browser supports smooth scrolling
-  if ('scrollBehavior' in document.documentElement.style) {
-    scrollToTop();
-  } else {
-    // Use custom smooth scroll for older browsers
-    scrollBtn.classList.add('animate');
-    smoothScrollToTop();
-    setTimeout(() => {
-      scrollBtn.classList.remove('animate');
-    }, 600);
-  }
-}
-
-// Export functions for potential external use
-window.scrollToTopUtils = {
-  scrollToTop,
-  updateScrollToTop,
-  smoothScrollToTop,
-  fallbackScrollToTop
-};
-
-console.log('🚀 Scroll to Top button initialized with progress indicator!');
-</script>
-
-<!-- END SCROLL TO TOP BUTTON SECTION -->
-
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="js/scripts.js"></script>
+    
+    <!-- Custom JavaScript Modules -->
+     
+<script src="js/config.js"></script>
+<script src="js/theme-manager.js"></script>
+<script src="js/navigation.js"></script>
+<script src="js/scroll-to-top.js"></script>
+<script src="js/ui-interactions.js"></script>
+<script src="js/seo-manager.js"></script>  
+<script src="js/app.js"></script>
+    <!-- SEO Manager -->
     <script>
-      // Enhanced Theme Toggle Functionality (Synchronized across all pages)
-      function toggleTheme() {
-        const body = document.body;
-        const currentTheme = body.getAttribute('data-theme');
-        const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-        
-        body.setAttribute('data-theme', newTheme);
-        localStorage.setItem('theme', newTheme);
-        
-        // Add a smooth transition effect
-        body.style.transition = 'all 0.3s ease';
-        setTimeout(() => {
-          body.style.transition = '';
-        }, 300);
-
-        // Sync theme across browser tabs
-        localStorage.setItem('theme-timestamp', Date.now().toString());
-        
-        // Broadcast theme change to other tabs
-        const event = new CustomEvent('themeChanged', { detail: newTheme });
-        window.dispatchEvent(event);
-      }
-
-      // Load saved theme on page load and sync across tabs
-      document.addEventListener('DOMContentLoaded', function() {
-        const savedTheme = localStorage.getItem('theme') || 'dark';
-        document.body.setAttribute('data-theme', savedTheme);
-        
-        // Add staggered fade-in animation to elements
-        const elements = document.querySelectorAll('.fade-in-up');
-        elements.forEach((el, index) => {
-          el.style.animationDelay = `${index * 0.2}s`;
-        });
-
-        // Add intersection observer for scroll animations
-        const observer = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              entry.target.style.opacity = '1';
-              entry.target.style.transform = 'translateY(0)';
-            }
-          });
-        });
-
-        // Observe about section for scroll animation
-        const aboutSection = document.querySelector('.about-section');
-        if (aboutSection) {
-          aboutSection.style.opacity = '0';
-          aboutSection.style.transform = 'translateY(20px)';
-          aboutSection.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-          observer.observe(aboutSection);
-        }
-
-        // Add profile image hover effect
-        const profileImg = document.querySelector('.profile-img');
-        if (profileImg) {
-          profileImg.addEventListener('mouseenter', function() {
-            this.style.transform = 'translateX(-50%) scale(1.05)';
-          });
-          
-          profileImg.addEventListener('mouseleave', function() {
-            this.style.transform = 'translateX(-50%) scale(1)';
-          });
-        }
-      });
-
-      // Listen for theme changes from other tabs/pages
-      window.addEventListener('storage', function(e) {
-        if (e.key === 'theme') {
-          document.body.setAttribute('data-theme', e.newValue || 'dark');
-        }
-      });
-
-      // Listen for custom theme change events
-      window.addEventListener('themeChanged', function(e) {
-        document.body.setAttribute('data-theme', e.detail);
-      });
-
-      // Add keyboard navigation for theme toggle
-      document.addEventListener('keydown', function(e) {
-        if (e.ctrlKey && e.key === 'l') {
-          e.preventDefault();
-          toggleTheme();
-        }
-      });
-
-      // Enhanced Call function with multiple options
-      function handleCall() {
-        // Create a modern modal-like experience
-        const userAgent = navigator.userAgent.toLowerCase();
-        const isMobile = /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/.test(userAgent);
-        
-        if (isMobile) {
-          // Direct call on mobile
-          window.open('tel:+254719790026', '_self');
-        } else {
-          // Show contact options on desktop
-          const contactOptions = `
-            <div style="
-              position: fixed;
-              top: 50%;
-              left: 50%;
-              transform: translate(-50%, -50%);
-              background: var(--card-bg);
-              border: 1px solid var(--card-border);
-              border-radius: 20px;
-              padding: 2rem;
-              backdrop-filter: blur(10px);
-              z-index: 10000;
-              text-align: center;
-              box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-            ">
-              <h3 style="color: var(--text-secondary); margin-bottom: 1rem;">Contact Me</h3>
-              <p style="color: var(--text-muted); margin-bottom: 1.5rem;">Choose your preferred contact method:</p>
-              <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-                <a href="tel:+254719790026" style="
-                  background: linear-gradient(135deg, #1e30f3 0%, #e21e80 100%);
-                  color: white;
-                  padding: 0.75rem 1.5rem;
-                  border-radius: 25px;
-                  text-decoration: none;
-                  font-weight: 600;
-                  transition: all 0.3s ease;
-                " onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
-                  📞 Call Now
-                </a>
-                <a href="https://wa.me/254719790026" target="_blank" style="
-                  background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
-                  color: white;
-                  padding: 0.75rem 1.5rem;
-                  border-radius: 25px;
-                  text-decoration: none;
-                  font-weight: 600;
-                  transition: all 0.3s ease;
-                " onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
-                  💬 WhatsApp
-                </a>
-                <a href="contact.html" style="
-                  background: linear-gradient(135deg, #6c757d 0%, #495057 100%);
-                  color: white;
-                  padding: 0.75rem 1.5rem;
-                  border-radius: 25px;
-                  text-decoration: none;
-                  font-weight: 600;
-                  transition: all 0.3s ease;
-                " onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
-                  ✉️ Contact Form
-                </a>
-              </div>
-              <button onclick="this.parentElement.remove()" style="
-                position: absolute;
-                top: 10px;
-                right: 15px;
-                background: none;
-                border: none;
-                font-size: 1.5rem;
-                color: var(--text-muted);
-                cursor: pointer;
-              ">×</button>
-            </div>
-            <div onclick="this.remove()" style="
-              position: fixed;
-              top: 0;
-              left: 0;
-              width: 100%;
-              height: 100%;
-              background: rgba(0,0,0,0.5);
-              z-index: 9999;
-            "></div>
-          `;
-          document.body.insertAdjacentHTML('beforeend', contactOptions);
-        }
-      }
-
-      // Add navbar scroll effect
-      window.addEventListener('scroll', function() {
-        const navbar = document.querySelector('.navbar');
-        if (window.scrollY > 50) {
-          navbar.style.background = 'rgba(0, 0, 0, 0.9)';
-          navbar.style.backdropFilter = 'blur(20px)';
-        } else {
-          navbar.style.background = 'rgba(0, 0, 0, 0.1)';
-          navbar.style.backdropFilter = 'blur(10px)';
-        }
-      });
-
-      // Add smooth scrolling for navigation links
-      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-          e.preventDefault();
-          const target = document.querySelector(this.getAttribute('href'));
-          if (target) {
-            target.scrollIntoView({
-              behavior: 'smooth',
-              block: 'start'
-            });
-          }
-        });
-      });
-
-      // Enhanced button interactions
-      document.querySelectorAll('.btn-enhanced').forEach(btn => {
-        btn.addEventListener('mouseenter', function() {
-          this.style.transform = 'translateY(-2px) scale(1.02)';
-        });
-        
-        btn.addEventListener('mouseleave', function() {
-          this.style.transform = 'translateY(0) scale(1)';
-        });
-      });
-
-      // Add social links hover effects
-      document.querySelectorAll('.social-links a').forEach(link => {
-        link.addEventListener('mouseenter', function() {
-          this.style.transform = 'translateY(-3px) scale(1.1) rotate(5deg)';
-        });
-        
-        link.addEventListener('mouseleave', function() {
-          this.style.transform = 'translateY(0) scale(1) rotate(0deg)';
-        });
-      });
-
-      // Performance optimization: Throttle scroll events
-      let ticking = false;
-      function updateOnScroll() {
-        if (!ticking) {
-          requestAnimationFrame(function() {
-            const scrolled = window.scrollY;
-            const header = document.querySelector('header');
-            
-            // Parallax effect for header
-            if (header && scrolled < window.innerHeight) {
-              header.style.transform = `translateY(${scrolled * 0.1}px)`;
-              header.style.opacity = 1 - (scrolled / window.innerHeight) * 0.3;
-            }
-            
-            ticking = false;
-          });
-          ticking = true;
-        }
-      }
-      
-      window.addEventListener('scroll', updateOnScroll);
-
-      // Add loading animation for images
-      document.querySelectorAll('img').forEach(img => {
-        img.addEventListener('load', function() {
-          this.style.opacity = '1';
-          this.style.transform = 'scale(1)';
-        });
-        
-        // Set initial state
-        img.style.opacity = '0';
-        img.style.transform = 'scale(0.95)';
-        img.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-      });
-
-      // Add enhanced error handling for images
-      document.querySelectorAll('img').forEach(img => {
-        img.addEventListener('error', function() {
-          this.style.opacity = '0.5';
-          this.alt = 'Image not available';
-          console.warn('Failed to load image:', this.src);
-        });
-      });
-
-      // Theme-aware console styling
-      console.log('%cEliud Waititu Portfolio', 'color: #1e30f3; font-size: 20px; font-weight: bold;');
-      console.log('%cWelcome to my portfolio! 🚀', 'color: #e21e80; font-size: 14px;');
-      console.log('%cFeel free to explore and contact me for web development projects!', 'color: #667eea; font-size: 12px;');
+      // Initialize SEO Manager
+      const seoManager = new SEOManager();
+      seoManager.init();
     </script>
   </body>
 </html>

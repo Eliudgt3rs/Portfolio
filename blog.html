@@ -1,0 +1,1844 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="DrWeb-Ke Blog - Web development insights, tips, and tutorials" />
+    <meta name="author" content="Eliud Waititu" />
+    <title>Blog - Eliud Waititu Web Development Insights</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="assets\icons8-internet.gif" />
+    <!-- Custom Google font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
+      rel="stylesheet"
+    />
+    <!-- Bootstrap icons-->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="css/styles.css" rel="stylesheet" />
+    
+    <style>
+      /* Theme Variables - Exact match with other pages */
+      :root {
+        --bg-primary: rgba(29, 28, 27, 0.945);
+        --bg-secondary: #fff;
+        --text-primary: #fff;
+        --text-secondary: #333;
+        --text-muted: #6c757d;
+        --card-bg: rgba(255, 255, 255, 0.95);
+        --card-border: rgba(255, 255, 255, 0.2);
+        --theme-transition: all 0.3s ease;
+        --gradient-primary: linear-gradient(135deg, #1e30f3 0%, #e21e80 100%);
+        --gradient-secondary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      }
+
+      [data-theme="light"] {
+        --bg-primary: #f8f9fa;
+        --bg-secondary: #fff;
+        --text-primary: #333;
+        --text-secondary: #666;
+        --text-muted: #6c757d;
+        --card-bg: rgba(255, 255, 255, 0.9);
+        --card-border: rgba(0, 0, 0, 0.1);
+      }
+
+      /* Enhanced Body Styling */
+      body {
+        background-color: var(--bg-primary) !important;
+        color: var(--text-primary) !important;
+        transition: var(--theme-transition);
+      }
+
+      .text-white {
+        color: var(--text-primary) !important;
+      }
+
+      .text-muted-custom {
+        color: var(--text-muted) !important;
+      }
+
+      /* Hide original theme toggle to prevent duplicates */
+      .theme-toggle {
+        display: none !important;
+      }
+
+      /* Enhanced Navigation Bar */
+      .navbar-enhanced {
+        backdrop-filter: blur(20px);
+        background: rgba(0, 0, 0, 0.1) !important;
+        transition: var(--theme-transition);
+        border-bottom: 1px solid var(--card-border);
+        padding: 1rem 0;
+        position: relative;
+        z-index: 1050;
+      }
+
+      [data-theme="light"] .navbar-enhanced {
+        background: rgba(255, 255, 255, 0.1) !important;
+      }
+
+      .navbar-enhanced.scrolled {
+        background: rgba(0, 0, 0, 0.95) !important;
+        backdrop-filter: blur(30px);
+        box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      [data-theme="light"] .navbar-enhanced.scrolled {
+        background: rgba(255, 255, 255, 0.95) !important;
+      }
+
+      /* Navigation Components */
+      .navbar-brand-enhanced {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--text-primary) !important;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        position: relative;
+      }
+
+      .navbar-brand-enhanced:hover {
+        transform: translateY(-2px);
+        color: var(--text-primary) !important;
+        text-decoration: none;
+      }
+
+      .navbar-brand-enhanced::after {
+        content: '';
+        position: absolute;
+        bottom: -3px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: var(--gradient-primary);
+        transition: width 0.3s ease;
+      }
+
+      .navbar-brand-enhanced:hover::after {
+        width: 100%;
+      }
+
+      .navbar-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
+        position: relative;
+        z-index: inherit;
+      }
+
+      .navbar-nav-enhanced {
+        display: flex;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        gap: 2rem;
+        align-items: center;
+      }
+
+      .nav-item-enhanced {
+        position: relative;
+      }
+
+      .nav-link-enhanced {
+        color: var(--text-primary) !important;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.95rem;
+        padding: 0.75rem 1.25rem;
+        border-radius: 25px;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+        display: inline-block;
+      }
+
+      .nav-link-enhanced::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+        transition: left 0.5s;
+        z-index: 1;
+      }
+
+      .nav-link-enhanced:hover::before {
+        left: 100%;
+      }
+
+      .nav-link-enhanced:hover {
+        background: var(--card-bg);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        color: var(--text-primary) !important;
+        text-decoration: none;
+      }
+
+      .nav-link-enhanced i {
+        position: relative;
+        z-index: 2;
+      }
+
+      .nav-link-enhanced span {
+        position: relative;
+        z-index: 2;
+      }
+
+      .nav-link-enhanced.active {
+        background: var(--gradient-primary);
+        color: white !important;
+        box-shadow: 0 4px 15px rgba(30, 48, 243, 0.3);
+      }
+
+      .nav-link-enhanced.active:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(30, 48, 243, 0.4);
+      }
+
+      .nav-controls {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      .theme-toggle-nav {
+        background: var(--card-bg);
+        border: 2px solid var(--card-border);
+        border-radius: 50px;
+        width: 55px;
+        height: 32px;
+        cursor: pointer;
+        transition: var(--theme-transition);
+        backdrop-filter: blur(10px);
+        position: relative;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        z-index: 1052;
+      }
+
+      .theme-toggle-nav:hover {
+        transform: scale(1.05);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+      }
+
+      .theme-toggle-nav::before {
+        content: '';
+        position: absolute;
+        top: 2px;
+        left: 2px;
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        background: var(--gradient-primary);
+        transition: var(--theme-transition);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+      }
+
+      [data-theme="light"] .theme-toggle-nav::before {
+        transform: translateX(23px);
+        background: linear-gradient(135deg, #ffc107 0%, #ff6b35 100%);
+      }
+
+      .mobile-menu-toggle {
+        display: none;
+        flex-direction: column;
+        background: var(--card-bg);
+        border: 2px solid var(--card-border);
+        border-radius: 15px;
+        padding: 0.75rem;
+        cursor: pointer;
+        transition: var(--theme-transition);
+        backdrop-filter: blur(10px);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        position: relative;
+        z-index: 1052;
+      }
+
+      .mobile-menu-toggle:hover {
+        transform: scale(1.05);
+        background: var(--gradient-primary);
+      }
+
+      .mobile-menu-toggle:hover .hamburger-line {
+        background: white;
+      }
+
+      .hamburger-line {
+        width: 25px;
+        height: 3px;
+        background: var(--text-primary);
+        margin: 3px 0;
+        transition: all 0.3s ease;
+        border-radius: 2px;
+      }
+
+      .mobile-menu-toggle.active .hamburger-line:nth-child(1) {
+        transform: rotate(45deg) translate(9px, 9px);
+      }
+
+      .mobile-menu-toggle.active .hamburger-line:nth-child(2) {
+        opacity: 0;
+      }
+
+      .mobile-menu-toggle.active .hamburger-line:nth-child(3) {
+        transform: rotate(-45deg) translate(9px, -9px);
+      }
+
+      .mobile-menu-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.3);
+        z-index: 1049;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      .mobile-menu-overlay.show {
+        display: block;
+        opacity: 1;
+      }
+
+      .navbar-nav-mobile {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--card-bg);
+        border: 1px solid var(--card-border);
+        border-radius: 20px;
+        margin: 1rem 2rem;
+        padding: 1.5rem;
+        backdrop-filter: blur(20px);
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+        z-index: 1051;
+        animation: slideDown 0.3s ease-out;
+      }
+
+      .navbar-nav-mobile.show {
+        display: block;
+      }
+
+      .navbar-nav-mobile .nav-link-enhanced {
+        display: block;
+        width: 100%;
+        text-align: center;
+        margin: 0.5rem 0;
+        padding: 1rem 1.5rem;
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 15px;
+        color: var(--text-secondary) !important;
+        font-weight: 600;
+        transition: all 0.3s ease;
+      }
+
+      [data-theme="light"] .navbar-nav-mobile {
+        background: rgba(255, 255, 255, 0.95);
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+      }
+
+      [data-theme="light"] .navbar-nav-mobile .nav-link-enhanced {
+        background: rgba(0, 0, 0, 0.05);
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        color: #333 !important;
+      }
+
+      .navbar-nav-mobile .nav-link-enhanced:hover {
+        background: var(--gradient-primary);
+        color: white !important;
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(30, 48, 243, 0.3);
+      }
+
+      .navbar-nav-mobile .nav-link-enhanced.active {
+        background: var(--gradient-primary);
+        color: white !important;
+        box-shadow: 0 4px 15px rgba(30, 48, 243, 0.3);
+      }
+
+      .navbar-nav-mobile .nav-link-enhanced i {
+        font-size: 1.1rem;
+        margin-right: 0.75rem;
+      }
+
+      /* Blog Hero Section */
+      .blog-hero {
+        background: var(--card-bg);
+        border-radius: 25px;
+        padding: 4rem 3rem;
+        margin-bottom: 4rem;
+        border: 1px solid var(--card-border);
+        backdrop-filter: blur(10px);
+        transition: var(--theme-transition);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .blog-hero::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        right: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(circle, rgba(30, 48, 243, 0.05) 0%, transparent 70%);
+        animation: rotate 20s linear infinite;
+      }
+
+      .blog-hero-content {
+        position: relative;
+        z-index: 1;
+        text-align: center;
+      }
+
+      .blog-hero h1 {
+        font-size: 3rem;
+        font-weight: 800;
+        background: var(--gradient-primary);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 1.5rem;
+      }
+
+      .blog-hero p {
+        font-size: 1.2rem;
+        color: var(--text-muted);
+        max-width: 600px;
+        margin: 0 auto 2rem;
+        line-height: 1.6;
+      }
+
+      .blog-stats {
+        display: flex;
+        justify-content: center;
+        gap: 3rem;
+        flex-wrap: wrap;
+        margin-top: 2rem;
+      }
+
+      .blog-stat {
+        text-align: center;
+      }
+
+      .blog-stat-number {
+        font-size: 2.5rem;
+        font-weight: 800;
+        color: var(--text-secondary);
+        display: block;
+      }
+
+      .blog-stat-label {
+        font-size: 0.9rem;
+        color: var(--text-muted);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      /* Categories Section */
+      .categories-section {
+        background: var(--card-bg);
+        border-radius: 20px;
+        padding: 2rem;
+        margin: 2rem 0;
+        border: 1px solid var(--card-border);
+        backdrop-filter: blur(10px);
+        transition: var(--theme-transition);
+      }
+
+      .categories-title {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--text-secondary);
+        margin-bottom: 1.5rem;
+        text-align: center;
+      }
+
+      .categories-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        justify-content: center;
+      }
+
+      .category-tag {
+        background: rgba(30, 48, 243, 0.1);
+        color: var(--text-secondary);
+        padding: 0.75rem 1.5rem;
+        border-radius: 25px;
+        text-decoration: none;
+        font-weight: 500;
+        border: 1px solid rgba(30, 48, 243, 0.2);
+        transition: all 0.3s ease;
+      }
+
+      .category-tag:hover {
+        background: var(--gradient-primary);
+        color: white;
+        transform: translateY(-2px);
+        text-decoration: none;
+      }
+
+      /* Blog Grid */
+      .blog-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 2rem;
+        margin-bottom: 4rem;
+      }
+
+      /* Blog Card */
+      .blog-card {
+        background: var(--card-bg);
+        border-radius: 20px;
+        border: 1px solid var(--card-border);
+        backdrop-filter: blur(10px);
+        transition: all 0.3s ease;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      .blog-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+      }
+
+      .blog-card-image {
+        height: 200px;
+        background: var(--gradient-primary);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .blog-card-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+      }
+
+      .blog-card:hover .blog-card-image img {
+        transform: scale(1.1);
+      }
+
+      .blog-card-category {
+        position: absolute;
+        top: 1rem;
+        left: 1rem;
+        background: rgba(255, 255, 255, 0.95);
+        color: var(--text-secondary);
+        padding: 0.5rem 1rem;
+        border-radius: 15px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      .blog-card-content {
+        padding: 2rem;
+      }
+
+      .blog-card-date {
+        color: var(--text-muted);
+        font-size: 0.9rem;
+        margin-bottom: 0.5rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .blog-card-title {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--text-secondary);
+        margin-bottom: 1rem;
+        line-height: 1.3;
+      }
+
+      .blog-card-title:hover {
+        color: #1e30f3;
+        cursor: pointer;
+      }
+
+      .blog-card-excerpt {
+        color: var(--text-muted);
+        font-size: 1rem;
+        line-height: 1.6;
+        margin-bottom: 1.5rem;
+      }
+
+      .blog-card-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .blog-card-author {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+      }
+
+      .blog-card-avatar {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: var(--gradient-primary);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: 600;
+      }
+
+      .blog-card-author-info {
+        font-size: 0.9rem;
+      }
+
+      .blog-card-author-name {
+        font-weight: 600;
+        color: var(--text-secondary);
+      }
+
+      .blog-card-read-time {
+        color: var(--text-muted);
+        font-size: 0.8rem;
+      }
+
+      .blog-card-read-more {
+        background: var(--gradient-primary);
+        color: white;
+        text-decoration: none;
+        padding: 0.75rem 1.5rem;
+        border-radius: 20px;
+        font-weight: 600;
+        font-size: 0.9rem;
+        transition: all 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .blog-card-read-more:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(30, 48, 243, 0.4);
+        color: white;
+        text-decoration: none;
+      }
+
+      /* Newsletter Section */
+      .newsletter-section {
+        background: var(--card-bg);
+        border-radius: 25px;
+        padding: 4rem 3rem;
+        margin: 4rem 0;
+        border: 1px solid var(--card-border);
+        backdrop-filter: blur(10px);
+        transition: var(--theme-transition);
+        text-align: center;
+      }
+
+      .newsletter-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: var(--text-secondary);
+        margin-bottom: 1rem;
+      }
+
+      .newsletter-subtitle {
+        font-size: 1.1rem;
+        color: var(--text-muted);
+        margin-bottom: 2rem;
+        max-width: 500px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .newsletter-form {
+        display: flex;
+        gap: 1rem;
+        max-width: 400px;
+        margin: 0 auto;
+      }
+
+      .newsletter-input {
+        flex: 1;
+        padding: 1rem 1.5rem;
+        border: 2px solid var(--card-border);
+        border-radius: 25px;
+        background: rgba(255, 255, 255, 0.1);
+        color: var(--text-secondary);
+        font-size: 1rem;
+        transition: all 0.3s ease;
+      }
+
+      .newsletter-input:focus {
+        outline: none;
+        border-color: #1e30f3;
+        box-shadow: 0 0 20px rgba(30, 48, 243, 0.2);
+      }
+
+      .newsletter-button {
+        background: var(--gradient-primary);
+        color: white;
+        border: none;
+        padding: 1rem 2rem;
+        border-radius: 25px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .newsletter-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(30, 48, 243, 0.4);
+      }
+
+      /* Enhanced Footer */
+      footer {
+        background: var(--card-bg) !important;
+        border-top: 1px solid var(--card-border);
+        backdrop-filter: blur(10px);
+        transition: var(--theme-transition);
+      }
+
+      footer .small {
+        color: var(--text-muted) !important;
+        transition: var(--theme-transition);
+      }
+
+      footer a.small {
+        color: var(--text-muted) !important;
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+
+      footer a.small:hover {
+        color: var(--text-primary) !important;
+      }
+
+      /* Enhanced WhatsApp Float */
+      .whatsapp-float {
+        position: fixed;
+        width: 60px;
+        height: 60px;
+        bottom: 40px;
+        right: 40px;
+        background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+        color: #FFF;
+        border-radius: 50px;
+        text-align: center;
+        font-size: 30px;
+        box-shadow: 0 8px 25px rgba(37, 211, 102, 0.3);
+        z-index: 100;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+      }
+
+      .whatsapp-float:hover {
+        transform: translateY(-5px) scale(1.1);
+        box-shadow: 0 15px 35px rgba(37, 211, 102, 0.4);
+        color: white;
+        text-decoration: none;
+      }
+
+      .whatsapp-float img {
+        width: 35px;
+        height: 35px;
+      }
+
+      /* Enhanced Scroll to Top Button */
+      .scroll-to-top {
+        position: fixed;
+        bottom: 120px;
+        right: 40px;
+        width: 50px;
+        height: 50px;
+        background: var(--card-bg);
+        border: 2px solid var(--card-border);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(20px);
+        transition: all 0.3s ease;
+        z-index: 98;
+        backdrop-filter: blur(10px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        text-decoration: none;
+        color: var(--text-secondary);
+      }
+
+      .scroll-to-top.show {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+
+      .scroll-to-top:hover {
+        transform: translateY(-3px) scale(1.1);
+        background: var(--gradient-primary);
+        border-color: transparent;
+        box-shadow: 0 15px 35px rgba(30, 48, 243, 0.3);
+        color: white;
+        text-decoration: none;
+      }
+
+      .scroll-to-top:hover i {
+        color: white !important;
+        transform: translateY(-2px);
+      }
+
+      .scroll-to-top i {
+        font-size: 1.2rem;
+        color: var(--text-secondary);
+        transition: all 0.3s ease;
+      }
+
+      /* Progress ring for scroll indicator */
+      .scroll-to-top::before {
+        content: '';
+        position: absolute;
+        top: -2px;
+        left: -2px;
+        right: -2px;
+        bottom: -2px;
+        border-radius: 50%;
+        background: conic-gradient(from 0deg, #1e30f3 0deg, #e21e80 var(--scroll-progress, 0deg), transparent var(--scroll-progress, 0deg));
+        z-index: -1;
+        transition: all 0.3s ease;
+      }
+
+      .scroll-to-top:hover::before {
+        background: conic-gradient(from 0deg, #1e30f3 0deg, #e21e80 360deg);
+        animation: rotate 2s linear infinite;
+      }
+
+      /* Smooth scroll behavior */
+      html {
+        scroll-behavior: smooth;
+      }
+
+      /* Enhanced scroll animation */
+      .scroll-to-top.animate {
+        animation: bounceUp 0.6s ease-out;
+      }
+
+      @keyframes bounceUp {
+        0% { transform: translateY(0) scale(1); }
+        50% { transform: translateY(-10px) scale(1.1); }
+        100% { transform: translateY(0) scale(1); }
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .navbar-container {
+          padding: 0 1rem;
+        }
+        
+        .navbar-nav-enhanced {
+          display: none;
+        }
+        
+        .mobile-menu-toggle {
+          display: flex;
+        }
+        
+        .theme-toggle-nav {
+          width: 50px;
+          height: 28px;
+        }
+        
+        .theme-toggle-nav::before {
+          width: 20px;
+          height: 20px;
+          top: 2px;
+          left: 2px;
+        }
+        
+        [data-theme="light"] .theme-toggle-nav::before {
+          transform: translateX(22px);
+        }
+
+        .blog-hero {
+          padding: 3rem 2rem;
+        }
+
+        .blog-hero h1 {
+          font-size: 2.2rem;
+        }
+
+        .blog-stats {
+          gap: 2rem;
+        }
+
+        .blog-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .newsletter-form {
+          flex-direction: column;
+        }
+
+        .categories-grid {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .whatsapp-float {
+          width: 50px;
+          height: 50px;
+          bottom: 20px;
+          right: 20px;
+        }
+
+        .whatsapp-float img {
+          width: 28px;
+          height: 28px;
+        }
+
+        .scroll-to-top {
+          width: 45px;
+          height: 45px;
+          bottom: 90px;
+          right: 20px;
+        }
+        
+        .scroll-to-top i {
+          font-size: 1rem;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .navbar-container {
+          padding: 0 0.5rem;
+        }
+        
+        .nav-controls {
+          gap: 0.5rem;
+        }
+        
+        .navbar-brand-enhanced {
+          font-size: 1.3rem;
+        }
+
+        .blog-hero {
+          padding: 2rem 1.5rem;
+        }
+
+        .blog-hero h1 {
+          font-size: 1.8rem;
+        }
+
+        .blog-card-content {
+          padding: 1.5rem;
+        }
+
+        .newsletter-section {
+          padding: 2rem 1.5rem;
+        }
+
+        .categories-section {
+          padding: 1.5rem;
+        }
+      }
+
+      /* Animation Keyframes */
+      @keyframes slideDown {
+        from {
+          opacity: 0;
+          transform: translateY(-20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes rotate {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+      }
+
+      .fade-in-up {
+        animation: fadeInUp 0.8s ease-out;
+      }
+
+      /* Text gradient that adapts to theme */
+      .text-gradient {
+        background: var(--gradient-primary);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+    </style>
+  </head>
+  <body class="d-flex flex-column h-100">
+    <main class="flex-shrink-0">
+      <!-- Navigation-->
+      <nav class="navbar-enhanced">
+        <div class="navbar-container">
+          <!-- Brand -->
+          <a class="navbar-brand-enhanced" href="index.html">
+            <span class="brand-logo">
+              <i class="bi bi-code-slash"></i>
+              Eliud Waititu
+            </span>
+          </a>
+
+          <!-- Desktop Navigation -->
+          <ul class="navbar-nav-enhanced">
+            <li class="nav-item-enhanced">
+              <a class="nav-link-enhanced" href="index.html" data-page="home">
+                <i class="bi bi-house me-1"></i>
+                <span>Home</span>
+              </a>
+            </li>
+            <li class="nav-item-enhanced">
+              <a class="nav-link-enhanced" href="resume.html" data-page="resume">
+                <i class="bi bi-file-person me-1"></i>
+                <span>Resume</span>
+              </a>
+            </li>
+            <li class="nav-item-enhanced">
+              <a class="nav-link-enhanced" href="projects.html" data-page="projects">
+                <i class="bi bi-folder me-1"></i>
+                <span>Projects</span>
+              </a>
+            </li>
+            <li class="nav-item-enhanced">
+              <a class="nav-link-enhanced" href="contact.html" data-page="contact">
+                <i class="bi bi-envelope me-1"></i>
+                <span>Contact</span>
+              </a>
+            </li>
+            <li class="nav-item-enhanced">
+              <a class="nav-link-enhanced" href="pricing.html" data-page="pricing">
+                <i class="bi bi-tags me-1"></i>
+                <span>Pricing</span>
+              </a>
+            </li>
+            <li class="nav-item-enhanced">
+              <a class="nav-link-enhanced active" href="blog.html" data-page="blog">
+                <i class="bi bi-journal-text me-1"></i>
+                <span>Blog</span>
+              </a>
+            </li>
+          </ul>
+
+          <!-- Navigation Controls -->
+          <div class="nav-controls">
+            <!-- Theme Toggle -->
+            <div 
+              class="theme-toggle-nav" 
+              onclick="toggleTheme()" 
+              title="Toggle Theme (Ctrl+L)"
+              role="button"
+              aria-label="Toggle dark/light theme"
+              tabindex="0"
+            ></div>
+
+            <!-- Mobile Menu Toggle -->
+            <div class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+              <div class="hamburger-line"></div>
+              <div class="hamburger-line"></div>
+              <div class="hamburger-line"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div class="mobile-menu-overlay" id="mobileMenuOverlay" onclick="closeMobileMenu()"></div>
+
+        <!-- Mobile Navigation Menu -->
+        <div class="navbar-nav-mobile" id="mobileNavMenu">
+          <a class="nav-link-enhanced" href="index.html" data-page="home">
+            <i class="bi bi-house me-2"></i>
+            <span>Home</span>
+          </a>
+          <a class="nav-link-enhanced" href="resume.html" data-page="resume">
+            <i class="bi bi-file-person me-2"></i>
+            <span>Resume</span>
+          </a>
+          <a class="nav-link-enhanced" href="projects.html" data-page="projects">
+            <i class="bi bi-folder me-2"></i>
+            <span>Projects</span>
+          </a>
+          <a class="nav-link-enhanced" href="contact.html" data-page="contact">
+            <i class="bi bi-envelope me-2"></i>
+            <span>Contact</span>
+          </a>
+          <a class="nav-link-enhanced" href="pricing.html" data-page="pricing">
+            <i class="bi bi-tags me-2"></i>
+            <span>Pricing</span>
+          </a>
+          <a class="nav-link-enhanced active" href="blog.html" data-page="blog">
+            <i class="bi bi-journal-text me-2"></i>
+            <span>Blog</span>
+          </a>
+        </div>
+      </nav>
+
+      <!-- Blog Hero Section -->
+      <section class="py-5">
+        <div class="container px-5 mb-5">
+          <div class="blog-hero fade-in-up">
+            <div class="blog-hero-content">
+              <h1>Web Development Insights</h1>
+              <p>
+                Explore the latest trends, tips, and tutorials in web development. 
+                From beginner guides to advanced techniques, discover how to build 
+                better websites and grow your online presence.
+              </p>
+              <div class="blog-stats">
+                <div class="blog-stat">
+                  <span class="blog-stat-number">50+</span>
+                  <span class="blog-stat-label">Articles</span>
+                </div>
+                <div class="blog-stat">
+                  <span class="blog-stat-number">10K+</span>
+                  <span class="blog-stat-label">Readers</span>
+                </div>
+                <div class="blog-stat">
+                  <span class="blog-stat-number">5</span>
+                  <span class="blog-stat-label">Categories</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Categories Section -->
+          <div class="categories-section fade-in-up">
+            <h2 class="categories-title">
+              <i class="bi bi-bookmarks me-2"></i>
+              Explore Categories
+            </h2>
+            <div class="categories-grid">
+              <a href="#" class="category-tag">Web Development</a>
+              <a href="#" class="category-tag">JavaScript</a>
+              <a href="#" class="category-tag">React</a>
+              <a href="#" class="category-tag">UI/UX Design</a>
+              <a href="#" class="category-tag">SEO Tips</a>
+              <a href="#" class="category-tag">Business</a>
+            </div>
+          </div>
+
+          <!-- Blog Posts Grid -->
+          <div class="blog-grid fade-in-up">
+            <!-- Blog Post 1 -->
+            <article class="blog-card">
+              <div class="blog-card-image">
+                <div class="blog-card-category">Web Development</div>
+                <div style="
+                  width: 100%;
+                  height: 100%;
+                  background: linear-gradient(135deg, #1e30f3 0%, #e21e80 100%);
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  color: white;
+                  font-size: 3rem;
+                ">
+                  <i class="bi bi-code-slash"></i>
+                </div>
+              </div>
+              <div class="blog-card-content">
+                <div class="blog-card-date">
+                  <i class="bi bi-calendar3"></i>
+                  January 15, 2025
+                </div>
+                <h3 class="blog-card-title">
+                  10 Essential Web Development Trends for 2025
+                </h3>
+                <p class="blog-card-excerpt">
+                  Discover the latest trends shaping the web development landscape this year. From AI integration to progressive web apps, learn what technologies will drive the future.
+                </p>
+                <div class="blog-card-footer">
+                  <div class="blog-card-author">
+                    <div class="blog-card-avatar">EW</div>
+                    <div class="blog-card-author-info">
+                      <div class="blog-card-author-name">Eliud Waititu</div>
+                      <div class="blog-card-read-time">5 min read</div>
+                    </div>
+                  </div>
+                  <a href="blog-post-1.html" class="blog-card-read-more">
+                    Read More <i class="bi bi-arrow-right"></i>
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <!-- Blog Post 2 -->
+            <article class="blog-card">
+              <div class="blog-card-image">
+                <div class="blog-card-category">JavaScript</div>
+                <div style="
+                  width: 100%;
+                  height: 100%;
+                  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  color: white;
+                  font-size: 3rem;
+                ">
+                  <i class="bi bi-braces"></i>
+                </div>
+              </div>
+              <div class="blog-card-content">
+                <div class="blog-card-date">
+                  <i class="bi bi-calendar3"></i>
+                  January 10, 2025
+                </div>
+                <h3 class="blog-card-title">
+                  Mastering React Hooks: A Complete Guide
+                </h3>
+                <p class="blog-card-excerpt">
+                  Dive deep into React Hooks and learn how to build more efficient and maintainable React applications. Includes practical examples and best practices.
+                </p>
+                <div class="blog-card-footer">
+                  <div class="blog-card-author">
+                    <div class="blog-card-avatar">EW</div>
+                    <div class="blog-card-author-info">
+                      <div class="blog-card-author-name">Eliud Waititu</div>
+                      <div class="blog-card-read-time">8 min read</div>
+                    </div>
+                  </div>
+                  <a href="blog-post-2.html" class="blog-card-read-more">
+                    Read More <i class="bi bi-arrow-right"></i>
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <!-- Blog Post 3 -->
+            <article class="blog-card">
+              <div class="blog-card-image">
+                <div class="blog-card-category">UI/UX Design</div>
+                <div style="
+                  width: 100%;
+                  height: 100%;
+                  background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  color: #333;
+                  font-size: 3rem;
+                ">
+                  <i class="bi bi-palette"></i>
+                </div>
+              </div>
+              <div class="blog-card-content">
+                <div class="blog-card-date">
+                  <i class="bi bi-calendar3"></i>
+                  January 5, 2025
+                </div>
+                <h3 class="blog-card-title">
+                  Creating User-Friendly Website Designs
+                </h3>
+                <p class="blog-card-excerpt">
+                  Learn the principles of user-centered design and how to create websites that not only look great but provide exceptional user experiences.
+                </p>
+                <div class="blog-card-footer">
+                  <div class="blog-card-author">
+                    <div class="blog-card-avatar">EW</div>
+                    <div class="blog-card-author-info">
+                      <div class="blog-card-author-name">Eliud Waititu</div>
+                      <div class="blog-card-read-time">6 min read</div>
+                    </div>
+                  </div>
+                  <a href="blog-post-3.html" class="blog-card-read-more">
+                    Read More <i class="bi bi-arrow-right"></i>
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <!-- Blog Post 4 -->
+            <article class="blog-card">
+              <div class="blog-card-image">
+                <div class="blog-card-category">SEO Tips</div>
+                <div style="
+                  width: 100%;
+                  height: 100%;
+                  background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  color: #333;
+                  font-size: 3rem;
+                ">
+                  <i class="bi bi-search"></i>
+                </div>
+              </div>
+              <div class="blog-card-content">
+                <div class="blog-card-date">
+                  <i class="bi bi-calendar3"></i>
+                  December 28, 2024
+                </div>
+                <h3 class="blog-card-title">
+                  SEO Best Practices for Small Businesses
+                </h3>
+                <p class="blog-card-excerpt">
+                  Boost your website's visibility with these proven SEO strategies. Learn how to optimize your content and improve your search engine rankings.
+                </p>
+                <div class="blog-card-footer">
+                  <div class="blog-card-author">
+                    <div class="blog-card-avatar">EW</div>
+                    <div class="blog-card-author-info">
+                      <div class="blog-card-author-name">Eliud Waititu</div>
+                      <div class="blog-card-read-time">7 min read</div>
+                    </div>
+                  </div>
+                  <a href="blog-post-4.html" class="blog-card-read-more">
+                    Read More <i class="bi bi-arrow-right"></i>
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <!-- Blog Post 5 -->
+            <article class="blog-card">
+              <div class="blog-card-image">
+                <div class="blog-card-category">Business</div>
+                <div style="
+                  width: 100%;
+                  height: 100%;
+                  background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  color: #333;
+                  font-size: 3rem;
+                ">
+                  <i class="bi bi-graph-up"></i>
+                </div>
+              </div>
+              <div class="blog-card-content">
+                <div class="blog-card-date">
+                  <i class="bi bi-calendar3"></i>
+                  December 20, 2024
+                </div>
+                <h3 class="blog-card-title">
+                  How a Website Can Transform Your Business
+                </h3>
+                <p class="blog-card-excerpt">
+                  Explore the impact of having a professional website on your business growth. From credibility to customer reach, discover the benefits.
+                </p>
+                <div class="blog-card-footer">
+                  <div class="blog-card-author">
+                    <div class="blog-card-avatar">EW</div>
+                    <div class="blog-card-author-info">
+                      <div class="blog-card-author-name">Eliud Waititu</div>
+                      <div class="blog-card-read-time">4 min read</div>
+                    </div>
+                  </div>
+                  <a href="blog-post-5.html" class="blog-card-read-more">
+                    Read More <i class="bi bi-arrow-right"></i>
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <!-- Blog Post 6 -->
+            <article class="blog-card">
+              <div class="blog-card-image">
+                <div class="blog-card-category">Web Development</div>
+                <div style="
+                  width: 100%;
+                  height: 100%;
+                  background: linear-gradient(135deg, #fbc2eb 0%, #a6c1ee 100%);
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  color: #333;
+                  font-size: 3rem;
+                ">
+                  <i class="bi bi-phone"></i>
+                </div>
+              </div>
+              <div class="blog-card-content">
+                <div class="blog-card-date">
+                  <i class="bi bi-calendar3"></i>
+                  December 15, 2024
+                </div>
+                <h3 class="blog-card-title">
+                  Mobile-First Design: Why It Matters
+                </h3>
+                <p class="blog-card-excerpt">
+                  Learn why mobile-first design is crucial in today's digital landscape and how to implement responsive design principles effectively.
+                </p>
+                <div class="blog-card-footer">
+                  <div class="blog-card-author">
+                    <div class="blog-card-avatar">EW</div>
+                    <div class="blog-card-author-info">
+                      <div class="blog-card-author-name">Eliud Waititu</div>
+                      <div class="blog-card-read-time">5 min read</div>
+                    </div>
+                  </div>
+                  <a href="#" class="blog-card-read-more">
+                    Read More <i class="bi bi-arrow-right"></i>
+                  </a>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <!-- Newsletter Section -->
+          <div class="newsletter-section fade-in-up">
+            <h2 class="newsletter-title">
+              <i class="bi bi-envelope-heart me-3"></i>
+              Stay Updated
+            </h2>
+            <p class="newsletter-subtitle">
+              Get the latest web development tips, tutorials, and insights delivered straight to your inbox.
+            </p>
+            <form class="newsletter-form">
+              <input 
+                type="email" 
+                class="newsletter-input" 
+                placeholder="Enter your email address"
+                required
+              />
+              <button type="submit" class="newsletter-button">
+                <i class="bi bi-send me-2"></i>
+                Subscribe
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <!-- Call to action section-->
+      <section class="py-5 bg-gradient-primary-to-secondary text-white">
+        <div class="container px-5 my-5">
+          <div class="text-center">
+            <h2 class="display-4 fw-bolder mb-4">
+              Ready to start your project?
+            </h2>
+            <p class="lead mb-4">
+              Let's turn your ideas into a powerful online presence
+            </p>
+            <div class="d-flex gap-3 justify-content-center flex-wrap">
+              <a
+                class="btn btn-outline-light rounded-5 btn-lg px-5 py-3 fs-6 fw-bolder"
+                href="contact.html"
+              >
+                <i class="bi bi-chat-dots me-2"></i>
+                Get Started
+              </a>
+              <a
+                class="btn btn-light rounded-5 btn-lg px-5 py-3 fs-6 fw-bolder text-primary"
+                href="pricing.html"
+              >
+                <i class="bi bi-tags me-2"></i>
+                View Pricing
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    
+    <!-- Footer-->
+    <footer class="py-4 mt-auto">
+      <div class="container px-5">
+        <div class="row align-items-center justify-content-between flex-column flex-sm-row">
+          <div class="col-auto">
+            <div class="small m-0 text-muted-custom">Copyright &copy; DrWeb-Ke 2025</div>
+          </div>
+          <div class="col-auto">
+            <a class="small text-muted-custom" href="privacy.html">Privacy</a>
+            <span class="mx-1 text-muted-custom">&middot;</span>
+            <a class="small text-muted-custom" href="privacy.html">Terms</a>
+            <span class="mx-1 text-muted-custom">&middot;</span>
+            <a class="small text-muted-custom" href="contact.html">Contact</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="js/scripts.js"></script>
+    
+    <!-- Scroll to Top Button -->
+    <button
+      class="scroll-to-top"
+      onclick="scrollToTop()"
+      title="Scroll to Top"
+      aria-label="Scroll to top of page"
+    >
+      <i class="bi bi-arrow-up"></i>
+    </button>
+    
+    <!-- Enhanced WhatsApp Float Button -->
+    <a
+      href="https://wa.me/254719790026?text=Hi%20Eliud%2C%20I%20read%20your%20blog%20and%20I'm%20interested%20in%20working%20with%20you!"
+      class="whatsapp-float"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Chat on WhatsApp"
+      title="Let's discuss your project!"
+    >
+      <img
+        src="https://cdn-icons-png.flaticon.com/512/733/733585.png"
+        alt="WhatsApp"
+      />
+      
+    </a>
+
+    <script>
+      // Enhanced Navigation Functionality (same as other pages)
+      function toggleMobileMenu() {
+        try {
+          const mobileMenu = document.getElementById('mobileNavMenu');
+          const mobileOverlay = document.getElementById('mobileMenuOverlay');
+          const toggleButton = document.querySelector('.mobile-menu-toggle');
+          
+          if (!mobileMenu || !toggleButton) return;
+          
+          const isOpen = mobileMenu.classList.contains('show');
+          
+          if (isOpen) {
+            closeMobileMenu();
+          } else {
+            openMobileMenu();
+          }
+        } catch (error) {
+          console.error('Error toggling mobile menu:', error);
+        }
+      }
+
+      function openMobileMenu() {
+        try {
+          const mobileMenu = document.getElementById('mobileNavMenu');
+          const mobileOverlay = document.getElementById('mobileMenuOverlay');
+          const toggleButton = document.querySelector('.mobile-menu-toggle');
+          
+          if (mobileMenu) mobileMenu.classList.add('show');
+          if (mobileOverlay) mobileOverlay.classList.add('show');
+          if (toggleButton) toggleButton.classList.add('active');
+          
+          if (document.body && document.body.style) {
+            document.body.style.overflow = 'hidden';
+          }
+        } catch (error) {
+          console.error('Error opening mobile menu:', error);
+        }
+      }
+
+      function closeMobileMenu() {
+        try {
+          const mobileMenu = document.getElementById('mobileNavMenu');
+          const mobileOverlay = document.getElementById('mobileMenuOverlay');
+          const toggleButton = document.querySelector('.mobile-menu-toggle');
+          
+          if (mobileMenu) mobileMenu.classList.remove('show');
+          if (mobileOverlay) mobileOverlay.classList.remove('show');
+          if (toggleButton) toggleButton.classList.remove('active');
+          
+          if (document.body && document.body.style) {
+            document.body.style.overflow = '';
+          }
+        } catch (error) {
+          console.error('Error closing mobile menu:', error);
+        }
+      }
+
+      // Enhanced scroll to top functionality
+      function scrollToTop() {
+        try {
+          const scrollBtn = document.querySelector('.scroll-to-top');
+          
+          if (scrollBtn) {
+            scrollBtn.classList.add('animate');
+            setTimeout(() => {
+              if (scrollBtn) {
+                scrollBtn.classList.remove('animate');
+              }
+            }, 600);
+          }
+          
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        } catch (error) {
+          console.error('Error scrolling to top:', error);
+        }
+      }
+
+      function updateScrollToTop() {
+        try {
+          const scrollBtn = document.querySelector('.scroll-to-top');
+          if (!scrollBtn) return;
+          
+          const scrollTop = window.pageYOffset || document.documentElement.scrollTop || 0;
+          const docHeight = (document.documentElement.scrollHeight || 0) - (document.documentElement.clientHeight || 0);
+          
+          if (docHeight <= 0) return;
+          
+          const scrollPercent = (scrollTop / docHeight) * 100;
+          const scrollDegrees = (scrollPercent / 100) * 360;
+          
+          if (scrollBtn.style && typeof scrollBtn.style.setProperty === 'function') {
+            scrollBtn.style.setProperty('--scroll-progress', `${scrollDegrees}deg`);
+          }
+          
+          if (scrollTop > 300) {
+            scrollBtn.classList.add('show');
+          } else {
+            scrollBtn.classList.remove('show');
+          }
+        } catch (error) {
+          // Silent fail
+        }
+      }
+
+      function updateNavbarOnScroll() {
+        try {
+          const navbar = document.querySelector('.navbar-enhanced');
+          if (!navbar) return;
+          
+          const scrolled = window.scrollY > 50;
+          
+          if (scrolled) {
+            navbar.classList.add('scrolled');
+          } else {
+            navbar.classList.remove('scrolled');
+          }
+        } catch (error) {
+          console.error('Error updating navbar on scroll:', error);
+        }
+      }
+
+      function toggleTheme() {
+        try {
+          const body = document.body;
+          if (!body) return;
+          
+          const currentTheme = body.getAttribute('data-theme');
+          const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+          
+          body.setAttribute('data-theme', newTheme);
+          localStorage.setItem('theme', newTheme);
+          
+          if (body.style) {
+            body.style.transition = 'all 0.3s ease';
+            setTimeout(() => {
+              if (body.style) {
+                body.style.transition = '';
+              }
+            }, 300);
+          }
+
+          localStorage.setItem('theme-timestamp', Date.now().toString());
+        } catch (error) {
+          console.error('Error toggling theme:', error);
+        }
+      }
+
+      function setActivePage() {
+        try {
+          const currentPage = 'blog.html';
+          const navLinks = document.querySelectorAll('.nav-link-enhanced');
+          
+          if (!navLinks || navLinks.length === 0) return;
+          
+          navLinks.forEach(link => {
+            try {
+              const linkPage = link.getAttribute('href');
+              const parentItem = link.closest('.nav-item-enhanced');
+              
+              link.classList.remove('active');
+              if (parentItem) parentItem.classList.remove('current-page');
+              
+              if (linkPage === currentPage) {
+                link.classList.add('active');
+                if (parentItem) parentItem.classList.add('current-page');
+              }
+            } catch (linkError) {
+              console.warn('Error processing nav link:', linkError);
+            }
+          });
+        } catch (error) {
+          console.error('Error setting active page:', error);
+        }
+      }
+
+      // Newsletter form handling
+      function handleNewsletterSubmit(e) {
+        e.preventDefault();
+        const email = e.target.querySelector('.newsletter-input').value;
+        
+        if (email) {
+          // Here you would typically send the email to your backend
+          alert('Thank you for subscribing! We\'ll keep you updated with the latest content.');
+          e.target.reset();
+        }
+      }
+
+      document.addEventListener('DOMContentLoaded', function() {
+        try {
+          console.log('🚀 Initializing blog page...');
+          
+          const savedTheme = localStorage.getItem('theme') || 'dark';
+          if (document.body) {
+            document.body.setAttribute('data-theme', savedTheme);
+          }
+          
+          setActivePage();
+          updateNavbarOnScroll();
+          updateScrollToTop();
+          
+          const fadeElements = document.querySelectorAll('.fade-in-up');
+          if (fadeElements && fadeElements.length > 0) {
+            fadeElements.forEach((el, index) => {
+              if (el && el.style) {
+                el.style.animationDelay = `${index * 0.2}s`;
+              }
+            });
+          }
+          
+          const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting && entry.target && entry.target.style) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+              }
+            });
+          });
+          
+          const blogCards = document.querySelectorAll('.blog-card');
+          blogCards.forEach(card => {
+            if (card && card.style) {
+              card.style.opacity = '0';
+              card.style.transform = 'translateY(20px)';
+              card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+              observer.observe(card);
+            }
+          });
+          
+          // Newsletter form event listener
+          const newsletterForm = document.querySelector('.newsletter-form');
+          if (newsletterForm) {
+            newsletterForm.addEventListener('submit', handleNewsletterSubmit);
+          }
+          
+          const mobileNavLinks = document.querySelectorAll('.navbar-nav-mobile .nav-link-enhanced');
+          mobileNavLinks.forEach(link => {
+            if (link) {
+              link.addEventListener('click', function() {
+                closeMobileMenu();
+              });
+            }
+          });
+          
+          console.log('✅ Blog page initialization complete!');
+          
+        } catch (error) {
+          console.error('Error during page initialization:', error);
+        }
+      });
+
+      window.addEventListener('storage', function(e) {
+        try {
+          if (e.key === 'theme' && document.body) {
+            document.body.setAttribute('data-theme', e.newValue || 'dark');
+          }
+        } catch (error) {
+          console.error('Error in storage handler:', error);
+        }
+      });
+
+      window.addEventListener('scroll', function() {
+        try {
+          updateNavbarOnScroll();
+          updateScrollToTop();
+        } catch (error) {
+          console.error('Error in scroll handler:', error);
+        }
+      });
+
+      document.addEventListener('keydown', function(e) {
+        try {
+          if (e.key === 'Escape') {
+            const mobileMenu = document.getElementById('mobileNavMenu');
+            if (mobileMenu && mobileMenu.classList.contains('show')) {
+              closeMobileMenu();
+            }
+          }
+          
+          if (e.ctrlKey && e.key === 'l') {
+            e.preventDefault();
+            toggleTheme();
+          }
+          
+          if (e.ctrlKey && e.key === 'Home') {
+            e.preventDefault();
+            scrollToTop();
+          }
+          
+          if (e.altKey && e.key === 't') {
+            e.preventDefault();
+            scrollToTop();
+          }
+        } catch (error) {
+          console.error('Error in keyboard handler:', error);
+        }
+      });
+
+      const themeToggle = document.querySelector('.theme-toggle-nav');
+      if (themeToggle) {
+        themeToggle.addEventListener('keydown', function(e) {
+          try {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              toggleTheme();
+            }
+          } catch (error) {
+            console.error('Error in theme toggle handler:', error);
+          }
+        });
+      }
+
+      console.log('📝 Blog page loaded successfully!');
+    </script>
+  </body>
+</html>

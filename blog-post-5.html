@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="How a Website Can Transform Your Business - DrWeb-Ke Blog" />
+    <meta name="author" content="Eliud Waititu" />
+    <title>How a Website Can Transform Your Business - DrWeb-Ke Blog</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="assets\icons8-internet.gif" />
+    <!-- Custom Google font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
+      rel="stylesheet"
+    />
+    <!-- Bootstrap icons-->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    
+    <style>
+      /* Theme Variables */
+      :root {
+        --bg-primary: rgba(29, 28, 27, 0.945);
+        --text-primary: #fff;
+        --text-secondary: #333;
+        --text-muted: #6c757d;
+        --card-bg: rgba(255, 255, 255, 0.95);
+        --card-border: rgba(255, 255, 255, 0.2);
+        --theme-transition: all 0.3s ease;
+        --gradient-primary: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+      }
+
+      [data-theme="light"] {
+        --bg-primary: #f8f9fa;
+        --text-primary: #333;
+        --text-secondary: #666;
+        --text-muted: #6c757d;
+        --card-bg: rgba(255, 255, 255, 0.9);
+        --card-border: rgba(0, 0, 0, 0.1);
+      }
+
+      /* Base Styling */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        background-color: var(--bg-primary);
+        color: var(--text-primary);
+        transition: var(--theme-transition);
+        line-height: 1.7;
+        min-height: 100vh;
+        padding: 2rem 1rem;
+      }
+
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 0 1rem;
+      }
+
+      /* Header Controls */
+      .header-controls {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 3rem;
+        padding: 1rem 0;
+      }
+
+      .back-button {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: var(--card-bg);
+        color: var(--text-primary);
+        text-decoration: none;
+        padding: 0.75rem 1.5rem;
+        border-radius: 25px;
+        font-weight: 600;
+        border: 1px solid var(--card-border);
+        backdrop-filter: blur(10px);
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .back-button:hover {
+        background: var(--gradient-primary);
+        color: #333;
+        text-decoration: none;
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(255, 154, 158, 0.3);
+      }
+
+      .theme-toggle {
+        background: var(--card-bg);
+        border: 2px solid var(--card-border);
+        border-radius: 50px;
+        width: 55px;
+        height: 32px;
+        cursor: pointer;
+        transition: var(--theme-transition);
+        backdrop-filter: blur(10px);
+        position: relative;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .theme-toggle:hover {
+        transform: scale(1.05);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+      }
+
+      .theme-toggle::before {
+        content: '';
+        position: absolute;
+        top: 2px;
+        left: 2px;
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        background: var(--gradient-primary);
+        transition: var(--theme-transition);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+      }
+
+      [data-theme="light"] .theme-toggle::before {
+        transform: translateX(23px);
+        background: linear-gradient(135deg, #ffc107 0%, #ff6b35 100%);
+      }
+
+      /* Article Styling */
+      .article-container {
+        background: var(--card-bg);
+        border-radius: 25px;
+        padding: 3rem;
+        border: 1px solid var(--card-border);
+        backdrop-filter: blur(10px);
+        transition: var(--theme-transition);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        margin-bottom: 2rem;
+      }
+
+      .article-header {
+        text-align: center;
+        margin-bottom: 3rem;
+        padding-bottom: 2rem;
+        border-bottom: 1px solid var(--card-border);
+      }
+
+      .article-category {
+        display: inline-block;
+        background: var(--gradient-primary);
+        color: #333;
+        padding: 0.5rem 1.5rem;
+        border-radius: 25px;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 1.5rem;
+      }
+
+      .article-title {
+        font-size: 3rem;
+        font-weight: 800;
+        color: var(--text-secondary);
+        margin-bottom: 1rem;
+        line-height: 1.2;
+      }
+
+      .article-meta {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        color: var(--text-muted);
+        font-size: 0.95rem;
+        flex-wrap: wrap;
+      }
+
+      .article-meta-item {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .article-content {
+        color: var(--text-secondary);
+        font-size: 1.1rem;
+        line-height: 1.8;
+      }
+
+      .article-content h2 {
+        color: var(--text-secondary);
+        font-size: 2rem;
+        font-weight: 700;
+        margin: 2.5rem 0 1.5rem 0;
+        position: relative;
+        padding-bottom: 0.5rem;
+      }
+
+      .article-content h2::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 60px;
+        height: 3px;
+        background: var(--gradient-primary);
+        border-radius: 2px;
+      }
+
+      .article-content h3 {
+        color: var(--text-secondary);
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin: 2rem 0 1rem 0;
+      }
+
+      .article-content h4 {
+        color: var(--text-secondary);
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin: 1.5rem 0 0.75rem 0;
+      }
+
+      .article-content p {
+        margin-bottom: 1.5rem;
+        text-align: justify;
+      }
+
+      .article-content ul, .article-content ol {
+        margin: 1.5rem 0;
+        padding-left: 2rem;
+      }
+
+      .article-content li {
+        margin-bottom: 0.75rem;
+      }
+
+      .article-content a {
+        color: #ff9a9e;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s ease;
+      }
+
+      .article-content a:hover {
+        color: #fecfef;
+        text-decoration: underline;
+      }
+
+      .highlight-box {
+        background: linear-gradient(135deg, rgba(255, 154, 158, 0.1) 0%, rgba(254, 207, 239, 0.1) 100%);
+        border: 1px solid rgba(255, 154, 158, 0.2);
+        border-radius: 15px;
+        padding: 2rem;
+        margin: 2rem 0;
+        position: relative;
+      }
+
+      .highlight-box::before {
+        content: '💡';
+        position: absolute;
+        top: 1rem;
+        left: 1.5rem;
+        font-size: 1.5rem;
+      }
+
+      .highlight-box p {
+        margin-left: 3rem;
+        font-style: italic;
+        font-weight: 500;
+      }
+
+      .stats-box {
+        background: linear-gradient(135deg, rgba(255, 154, 158, 0.05) 0%, rgba(254, 207, 239, 0.05) 100%);
+        border: 1px solid rgba(255, 154, 158, 0.15);
+        border-radius: 15px;
+        padding: 2rem;
+        margin: 2rem 0;
+        position: relative;
+      }
+
+      .stats-box::before {
+        content: '📊';
+        position: absolute;
+        top: 1rem;
+        left: 1.5rem;
+        font-size: 1.5rem;
+      }
+
+      .stats-box p {
+        margin-left: 3rem;
+        font-weight: 500;
+      }
+
+      /* Call to Action */
+      .cta-section {
+        background: var(--card-bg);
+        border-radius: 20px;
+        padding: 2.5rem;
+        text-align: center;
+        border: 1px solid var(--card-border);
+        backdrop-filter: blur(10px);
+        transition: var(--theme-transition);
+      }
+
+      .cta-section h3 {
+        color: var(--text-secondary);
+        font-size: 1.8rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+      }
+
+      .cta-section p {
+        color: var(--text-muted);
+        margin-bottom: 1.5rem;
+      }
+
+      .cta-button {
+        display: inline-block;
+        background: var(--gradient-primary);
+        color: #333;
+        text-decoration: none;
+        padding: 1rem 2.5rem;
+        border-radius: 25px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        box-shadow: 0 8px 25px rgba(255, 154, 158, 0.3);
+      }
+
+      .cta-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 15px 35px rgba(255, 154, 158, 0.4);
+        color: #333;
+        text-decoration: none;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        body {
+          padding: 1rem 0.5rem;
+        }
+
+        .article-container {
+          padding: 2rem;
+        }
+
+        .article-title {
+          font-size: 2.2rem;
+        }
+
+        .article-meta {
+          flex-direction: column;
+          gap: 0.5rem;
+        }
+
+        .header-controls {
+          margin-bottom: 2rem;
+        }
+
+        .theme-toggle {
+          width: 50px;
+          height: 28px;
+        }
+
+        .theme-toggle::before {
+          width: 20px;
+          height: 20px;
+        }
+
+        [data-theme="light"] .theme-toggle::before {
+          transform: translateX(22px);
+        }
+      }
+
+      @media (max-width: 576px) {
+        .article-title {
+          font-size: 1.8rem;
+        }
+
+        .article-content h2 {
+          font-size: 1.6rem;
+        }
+
+        .highlight-box, .stats-box {
+          padding: 1.5rem;
+        }
+
+        .highlight-box p, .stats-box p {
+          margin-left: 2rem;
+        }
+      }
+
+      /* Animations */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .fade-in {
+        animation: fadeInUp 0.8s ease-out;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header Controls -->
+    <div class="header-controls fade-in">
+      <a href="blog.html" class="back-button">
+        <i class="bi bi-arrow-left"></i>
+        <span>Back to Blog</span>
+      </a>
+      <div 
+        class="theme-toggle" 
+        onclick="toggleTheme()" 
+        title="Toggle Theme"
+        role="button"
+        aria-label="Toggle dark/light theme"
+        tabindex="0"
+      ></div>
+    </div>
+
+    <div class="container">
+      <!-- Article -->
+      <article class="article-container fade-in">
+        <header class="article-header">
+          <div class="article-category">Business Growth</div>
+          <h1 class="article-title">How a Website Can Transform Your Business</h1>
+          <div class="article-meta">
+            <div class="article-meta-item">
+              <i class="bi bi-calendar3"></i>
+              <span>December 25, 2024</span>
+            </div>
+            <div class="article-meta-item">
+              <i class="bi bi-person-circle"></i>
+              <span>Eliud Waititu</span>
+            </div>
+            <div class="article-meta-item">
+              <i class="bi bi-clock"></i>
+              <span>8 min read</span>
+            </div>
+          </div>
+        </header>
+
+        <div class="article-content">
+          <p>
+            In today's digital age, having a website isn't just an option—it's a necessity for business success. Whether you're a small local shop in Nairobi or an established company looking to expand, a well-designed website can completely transform how you connect with customers, showcase your products, and grow your revenue. Let's explore how a professional website can revolutionize your business.
+          </p>
+
+          <h2>The Digital Foundation of Modern Business</h2>
+          <p>
+            Think of your website as your digital storefront that never closes. While your physical location may have limited hours, your website works 24/7, allowing customers to discover your business, learn about your services, and even make purchases at any time of day or night.
+          </p>
+
+          <h3>Breaking Geographic Barriers</h3>
+          <p>
+            A website instantly expands your market reach beyond your immediate location. A bakery in Mombasa can now serve customers in Kisumu, or a consultancy firm in Nakuru can attract clients from across East Africa. The internet removes geographical limitations and opens up endless possibilities for growth.
+          </p>
+
+          <div class="stats-box">
+            <p>
+              Studies show that 97% of consumers search online for local businesses. Without a website, you're essentially invisible to the majority of potential customers who could benefit from your products or services.
+            </p>
+          </div>
+
+          <h2>Building Trust and Credibility</h2>
+          <p>
+            In an era where consumers research everything online before making purchasing decisions, a professional website serves as your credibility badge. When potential customers search for your business and find a well-designed, informative website, it immediately positions you as a legitimate, trustworthy company.
+          </p>
+
+          <h3>Professional Image</h3>
+          <p>
+            Your website is often the first impression customers have of your business. A modern, responsive website with clear information about your services, contact details, and customer testimonials builds confidence and trust from the first click.
+          </p>
+
+          <h3>Customer Reviews and Social Proof</h3>
+          <p>
+            Displaying customer testimonials, case studies, and reviews on your website provides social proof that encourages new customers to choose your business. When visitors see that others have had positive experiences, they're more likely to become customers themselves.
+          </p>
+
+          <h2>Cost-Effective Marketing Platform</h2>
+          <p>
+            Compared to traditional advertising methods like newspaper ads, radio spots, or billboards, a website provides incredible value for money. Once established, it serves as a marketing platform that promotes your business 24/7 without ongoing costs.
+          </p>
+
+          <h3>Search Engine Visibility</h3>
+          <p>
+            When your website is optimized for search engines, customers can easily find you when they search for products or services you offer. This organic visibility is far more cost-effective than paid advertising and often generates higher-quality leads.
+          </p>
+
+          <ul>
+            <li><strong>Local SEO benefits:</strong> Appear in "near me" searches</li>
+            <li><strong>Content marketing:</strong> Share valuable information to attract customers</li>
+            <li><strong>Social media integration:</strong> Amplify your reach across platforms</li>
+            <li><strong>Email marketing hub:</strong> Collect leads and nurture customer relationships</li>
+          </ul>
+
+          <h2>Enhanced Customer Service</h2>
+          <p>
+            A website dramatically improves your ability to serve customers efficiently and effectively. Instead of answering the same questions repeatedly over the phone, you can provide comprehensive information online.
+          </p>
+
+          <h3>Self-Service Options</h3>
+          <p>
+            Customers appreciate being able to find information quickly without having to call or visit in person. Your website can include:
+          </p>
+
+          <ul>
+            <li>Frequently asked questions (FAQs)</li>
+            <li>Product catalogs with detailed descriptions</li>
+            <li>Service explanations and pricing</li>
+            <li>Contact forms for specific inquiries</li>
+            <li>Online booking or appointment scheduling</li>
+          </ul>
+
+          <h3>Improved Communication</h3>
+          <p>
+            Features like live chat, contact forms, and clear contact information make it easier for customers to reach you. Many businesses see increased customer satisfaction when they provide multiple ways for customers to get in touch.
+          </p>
+
+          <div class="highlight-box">
+            <p>
+              Remember: Your website should make it as easy as possible for customers to contact you and get the information they need. The simpler the experience, the more likely they are to choose your business.
+            </p>
+          </div>
+
+          <h2>Revenue Generation Opportunities</h2>
+          <p>
+            Beyond marketing and customer service benefits, a website can directly generate revenue through various channels, creating new income streams for your business.
+          </p>
+
+          <h3>E-commerce Capabilities</h3>
+          <p>
+            Selling products online opens up massive revenue potential. Even if you primarily operate a physical store, adding e-commerce capabilities allows you to:
+          </p>
+
+          <ul>
+            <li>Sell to customers who can't visit in person</li>
+            <li>Offer products 24/7 without additional staff costs</li>
+            <li>Expand your product range without physical storage limitations</li>
+            <li>Automate order processing and payment collection</li>
+          </ul>
+
+          <h3>Service Bookings and Consultations</h3>
+          <p>
+            Service-based businesses can use their website to streamline the booking process, accept deposits, and even offer virtual consultations. This reduces administrative overhead while making it more convenient for customers to engage with your services.
+          </p>
+
+          <h2>Data-Driven Business Insights</h2>
+          <p>
+            One of the most valuable aspects of having a website is the wealth of data it provides about your customers and their behavior. This information is crucial for making informed business decisions.
+          </p>
+
+          <h3>Understanding Your Customers</h3>
+          <p>
+            Website analytics reveal valuable insights such as:
+          </p>
+
+          <ul>
+            <li>Which products or services generate the most interest</li>
+            <li>Where your customers are located geographically</li>
+            <li>How customers find your website (search, social media, referrals)</li>
+            <li>What information customers seek most frequently</li>
+            <li>Peak times for customer engagement</li>
+          </ul>
+
+          <h3>Optimization Opportunities</h3>
+          <p>
+            This data allows you to continuously improve your business operations, from adjusting your marketing strategy to optimizing your product offerings based on actual customer demand.
+          </p>
+
+          <h2>Competitive Advantage</h2>
+          <p>
+            In many industries, especially among small businesses in Kenya, having a professional website can provide a significant competitive advantage. While larger companies may have substantial marketing budgets, a well-designed website can level the playing field.
+          </p>
+
+          <h3>Standing Out from Competitors</h3>
+          <p>
+            When customers compare businesses online, those with professional websites immediately appear more established and trustworthy than those without. This perception can be the deciding factor in winning new customers.
+          </p>
+
+          <h3>Showcasing Your Unique Value</h3>
+          <p>
+            Your website allows you to clearly communicate what makes your business special. Whether it's your years of experience, unique approach, or exceptional customer service, a website gives you the platform to tell your story effectively.
+          </p>
+
+          <h2>Scalability and Growth</h2>
+          <p>
+            As your business grows, your website can grow with you. Unlike physical expansions that require significant investment, expanding your online presence is relatively inexpensive and can happen quickly.
+          </p>
+
+          <h3>Adding New Services</h3>
+          <p>
+            Launching new products or services becomes much easier when you have a website. You can quickly add new pages, update your offerings, and inform existing customers about new opportunities.
+          </p>
+
+          <h3>Market Testing</h3>
+          <p>
+            Your website provides an excellent platform for testing new ideas, gathering customer feedback, and validating business concepts before making significant investments.
+          </p>
+
+          <div class="stats-box">
+            <p>
+              Businesses with websites report an average of 40% faster growth compared to those without. The ability to reach more customers, operate more efficiently, and adapt quickly to market changes drives this accelerated growth.
+            </p>
+          </div>
+
+          <h2>Common Concerns and Solutions</h2>
+          <p>
+            Many business owners hesitate to invest in a website due to common misconceptions. Let's address these concerns:
+          </p>
+
+          <h3>"It's Too Expensive"</h3>
+          <p>
+            Modern website development is more affordable than ever. Consider the long-term return on investment: a website that brings in just one new customer per month often pays for itself within the first year.
+          </p>
+
+          <h3>"It's Too Complicated"</h3>
+          <p>
+            You don't need to manage the technical aspects yourself. Professional web developers handle the complex parts while providing you with easy-to-use tools for updating content and managing your online presence.
+          </p>
+
+          <h3>"My Business is Too Local"</h3>
+          <p>
+            Even purely local businesses benefit enormously from websites. Local SEO helps nearby customers find you, and a website provides a professional platform for showcasing your services to the community.
+          </p>
+
+          <h2>Getting Started: Your Website Journey</h2>
+          <p>
+            Transforming your business with a website doesn't happen overnight, but the process can be straightforward with the right approach:
+          </p>
+
+          <ol>
+            <li><strong>Define your goals:</strong> What do you want your website to achieve?</li>
+            <li><strong>Choose the right partner:</strong> Work with experienced web developers who understand your industry</li>
+            <li><strong>Plan your content:</strong> Organize information about your products, services, and company</li>
+            <li><strong>Design for your customers:</strong> Ensure the website meets your customers' needs</li>
+            <li><strong>Launch and promote:</strong> Make sure customers know about your new online presence</li>
+            <li><strong>Monitor and improve:</strong> Use analytics to continuously enhance your website's performance</li>
+          </ol>
+
+          <h2>The Future is Digital</h2>
+          <p>
+            The businesses that thrive in the coming years will be those that embrace digital transformation. A website isn't just a marketing tool—it's a fundamental business asset that can drive growth, improve efficiency, and create new opportunities.
+          </p>
+
+          <p>
+            Whether you're just starting out or looking to take your established business to the next level, investing in a professional website is one of the smartest decisions you can make. It's not just about keeping up with the competition; it's about positioning your business for sustainable, long-term success.
+          </p>
+
+          <h2>Conclusion</h2>
+          <p>
+            A website truly can transform your business by expanding your reach, building credibility, generating revenue, and providing valuable insights about your customers. In today's connected world, the question isn't whether you can afford to have a website—it's whether you can afford not to have one.
+          </p>
+
+          <p>
+            The transformation begins with a single step: deciding to establish your business's digital presence. Once you take that step, you'll wonder how you ever operated without this powerful business tool.
+          </p>
+
+          <p>
+            Remember, your website is an investment in your business's future. Every day without a professional online presence is a day of missed opportunities, lost customers, and unrealized potential. The time to transform your business is now.
+          </p>
+        </div>
+      </article>
+
+      <!-- Call to Action -->
+      <div class="cta-section fade-in">
+        <h3>Ready to Transform Your Business?</h3>
+        <p>
+          Let's create a professional website that drives growth and connects you with more customers.
+        </p>
+        <a href="contact.html" class="cta-button">
+          <i class="bi bi-rocket-takeoff me-2"></i>
+          Start Your Transformation
+        </a>
+      </div>
+    </div>
+
+    <script>
+      // Theme Toggle Functionality
+      function toggleTheme() {
+        try {
+          const body = document.body;
+          if (!body) return;
+          
+          const currentTheme = body.getAttribute('data-theme');
+          const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+          
+          body.setAttribute('data-theme', newTheme);
+          localStorage.setItem('theme', newTheme);
+          
+          if (body.style) {
+            body.style.transition = 'all 0.3s ease';
+            setTimeout(() => {
+              if (body.style) {
+                body.style.transition = '';
+              }
+            }, 300);
+          }
+        } catch (error) {
+          console.error('Error toggling theme:', error);
+        }
+      }
+
+      // Load saved theme on page load
+      document.addEventListener('DOMContentLoaded', function() {
+        try {
+          const savedTheme = localStorage.getItem('theme') || 'dark';
+          if (document.body) {
+            document.body.setAttribute('data-theme', savedTheme);
+          }
+          
+          // Add fade-in animations
+          const fadeElements = document.querySelectorAll('.fade-in');
+          fadeElements.forEach((el, index) => {
+            if (el && el.style) {
+              el.style.animationDelay = `${index * 0.2}s`;
+            }
+          });
+        } catch (error) {
+          console.error('Error during initialization:', error);
+        }
+      });
+
+      // Listen for theme changes from other tabs
+      window.addEventListener('storage', function(e) {
+        try {
+          if (e.key === 'theme' && document.body) {
+            document.body.setAttribute('data-theme', e.newValue || 'dark');
+          }
+        } catch (error) {
+          console.error('Error in storage handler:', error);
+        }
+      });
+
+      // Keyboard support for theme toggle
+      document.addEventListener('keydown', function(e) {
+        try {
+          if (e.ctrlKey && e.key === 'l') {
+            e.preventDefault();
+            toggleTheme();
+          }
+        } catch (error) {
+          console.error('Error in keyboard handler:', error);
+        }
+      });
+
+      // Theme toggle accessibility
+      const themeToggle = document.querySelector('.theme-toggle');
+      if (themeToggle) {
+        themeToggle.addEventListener('keydown', function(e) {
+          try {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              toggleTheme();
+            }
+          } catch (error) {
+            console.error('Error in theme toggle handler:', error);
+          }
+        });
+      }
+
+      console.log('🚀 Business transformation blog post loaded successfully!');
+    </script>
+  </body>
+</html>
